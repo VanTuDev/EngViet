@@ -1,0 +1,312 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Bảng màu (biến CSS "R G B") ────────────────────────────────────────────
+   Sáng ở :root, tối ghi đè ở .dark. Class .dark do theme-toggle gắn lên <html>. */
+:root {
+  --surface: 248 249 255;
+  --surface-dim: 203 219 245;
+  --surface-bright: 248 249 255;
+  --surface-container-lowest: 255 255 255;
+  --surface-container-low: 239 244 255;
+  --surface-container: 229 238 255;
+  --surface-container-high: 220 233 255;
+  --surface-container-highest: 211 228 254;
+  --on-surface: 11 28 48;
+  --on-surface-variant: 67 70 85;
+  --inverse-surface: 33 49 69;
+  --inverse-on-surface: 234 241 255;
+  --outline: 115 118 134;
+  --outline-variant: 195 198 215;
+  --surface-tint: 0 83 219;
+  --primary: 0 74 198;
+  --on-primary: 255 255 255;
+  --primary-container: 37 99 235;
+  --on-primary-container: 238 239 255;
+  --inverse-primary: 180 197 255;
+  --secondary: 0 108 73;
+  --on-secondary: 255 255 255;
+  --secondary-container: 108 248 187;
+  --on-secondary-container: 0 113 77;
+  --tertiary: 173 0 51;
+  --on-tertiary: 255 255 255;
+  --tertiary-container: 210 35 72;
+  --on-tertiary-container: 255 236 236;
+  --error: 186 26 26;
+  --on-error: 255 255 255;
+  --error-container: 255 218 214;
+  --on-error-container: 147 0 10;
+  --primary-fixed: 219 225 255;
+  --primary-fixed-dim: 180 197 255;
+  --on-primary-fixed: 0 23 75;
+  --on-primary-fixed-variant: 0 62 168;
+  --secondary-fixed: 111 251 190;
+  --secondary-fixed-dim: 78 222 163;
+  --on-secondary-fixed: 0 33 19;
+  --on-secondary-fixed-variant: 0 82 54;
+  --tertiary-fixed: 255 218 219;
+  --tertiary-fixed-dim: 255 178 183;
+  --on-tertiary-fixed: 64 0 13;
+  --on-tertiary-fixed-variant: 146 0 42;
+  --background: 248 249 255;
+  --on-background: 11 28 48;
+  --surface-variant: 211 228 254;
+  color-scheme: light;
+}
+
+.dark {
+  --surface: 16 19 28;
+  --surface-dim: 16 19 28;
+  --surface-bright: 45 49 61;
+  --surface-container-lowest: 11 13 20;
+  --surface-container-low: 24 28 38;
+  --surface-container: 28 33 44;
+  --surface-container-high: 38 44 57;
+  --surface-container-highest: 49 56 71;
+  --on-surface: 226 232 245;
+  --on-surface-variant: 179 186 204;
+  --inverse-surface: 226 232 245;
+  --inverse-on-surface: 40 44 56;
+  --outline: 135 142 160;
+  --outline-variant: 60 66 80;
+  --surface-tint: 173 198 255;
+  --primary: 173 198 255;
+  --on-primary: 0 46 105;
+  --primary-container: 0 74 154;
+  --on-primary-container: 219 225 255;
+  --inverse-primary: 0 74 198;
+  --secondary: 78 222 163;
+  --on-secondary: 0 56 36;
+  --secondary-container: 0 82 54;
+  --on-secondary-container: 108 248 187;
+  --tertiary: 255 178 183;
+  --on-tertiary: 92 0 27;
+  --tertiary-container: 128 22 44;
+  --on-tertiary-container: 255 218 219;
+  --error: 255 180 171;
+  --on-error: 105 0 5;
+  --error-container: 147 0 10;
+  --on-error-container: 255 218 214;
+  --primary-fixed: 30 42 66;
+  --primary-fixed-dim: 46 60 90;
+  --on-primary-fixed: 219 225 255;
+  --on-primary-fixed-variant: 180 197 255;
+  --secondary-fixed: 20 46 36;
+  --secondary-fixed-dim: 30 66 52;
+  --on-secondary-fixed: 111 251 190;
+  --on-secondary-fixed-variant: 78 222 163;
+  --tertiary-fixed: 64 20 28;
+  --tertiary-fixed-dim: 90 30 40;
+  --on-tertiary-fixed: 255 218 219;
+  --on-tertiary-fixed-variant: 255 178 183;
+  --background: 16 19 28;
+  --on-background: 226 232 245;
+  --surface-variant: 39 45 58;
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Chống "bung" khi cuộn quá đầu/cuối trên mobile. */
+    overscroll-behavior-y: none;
+    /* iOS: bỏ viền xanh khi chạm. */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-on-background font-body antialiased;
+  }
+
+  /* Nút / link luôn tắt highlight chạm mặc định của mobile. */
+  button,
+  a,
+  [role="button"] {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    @apply bg-primary/20 text-on-background;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-surface;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme("colors.outline-variant") transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: theme("colors.outline-variant");
+    border-radius: 9999px;
+  }
+
+  /* Chữ tô gradient theo tông thương hiệu (xanh dương -> xanh lá). */
+  .text-gradient {
+    background-image: linear-gradient(120deg, theme("colors.primary") 0%, theme("colors.secondary") 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Nền "mesh" mềm cho khu vực hero — vài quầng sáng mờ chồng lên nhau.
+     (Component <GradientMesh> làm bản động; class này là bản tĩnh dự phòng.) */
+  .bg-hero-mesh {
+    background-color: theme("colors.surface-container-low");
+    background-image:
+      radial-gradient(38rem 38rem at 12% -10%, rgba(37, 99, 235, 0.16), transparent 60%),
+      radial-gradient(32rem 32rem at 92% 8%, rgba(0, 108, 73, 0.12), transparent 60%),
+      radial-gradient(28rem 28rem at 60% 110%, rgba(173, 0, 51, 0.08), transparent 60%);
+  }
+
+  /* Hiệu ứng vào trang nhẹ (không phụ thuộc cuộn). */
+  .animate-rise {
+    animation: slide-up 0.5s ease-out both;
+  }
+
+  /* Lớp hạt mờ (grain) để bề mặt bớt phẳng — data-URI feTurbulence, opacity rất thấp. */
+  .bg-grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  }
+
+  /* Preserve-3d cho các khối cần chiều sâu. */
+  .card-3d {
+    transform-style: preserve-3d;
+  }
+
+  /* Safe-area cho thiết bị có notch — dùng cho nav dưới & thanh dính đáy. */
+  .pb-safe {
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 0px);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .h-bottom-nav {
+    /* chiều cao 4rem + safe-area */
+    height: calc(4rem + env(safe-area-inset-bottom, 0px));
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .bottom-nav-spacer {
+    height: calc(4rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* <Reveal>: mặc định HIỂN THỊ ĐẦY ĐỦ. Chỉ khi JS gắn `.reveal-pending`
+     (phần tử còn ở dưới màn hình) mới tạm ẩn; `.reveal-in` đưa lại về hiện. */
+  .reveal-init {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-init {
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-pending {
+    opacity: 0;
+    transform: translateY(var(--reveal-y, 16px));
+  }
+  .reveal-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes blob-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(4%, -3%, 0) scale(1.06);
+  }
+  66% {
+    transform: translate3d(-3%, 4%, 0) scale(0.96);
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -150% 0;
+  }
+  100% {
+    background-position: 150% 0;
+  }
+}
+
+@keyframes draw-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes confetti-fall {
+  to {
+    transform: translate3d(var(--cf-x, 0), 108vh, 0) rotate(var(--cf-r, 360deg));
+    opacity: 0;
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

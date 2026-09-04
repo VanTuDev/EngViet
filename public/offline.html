@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Ngoại tuyến · TOPTI</title>
+    <style>
+      :root { color-scheme: light dark; }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0; min-height: 100vh; display: flex; flex-direction: column;
+        align-items: center; justify-content: center; gap: 12px; padding: 24px;
+        text-align: center; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        background: #f8f9ff; color: #0b1c30;
+      }
+      @media (prefers-color-scheme: dark) { body { background: #0b1220; color: #e6ecff; } }
+      .logo {
+        width: 64px; height: 64px; border-radius: 16px; display: flex; align-items: center;
+        justify-content: center; font-weight: 700; font-size: 32px; color: #fff;
+        background: linear-gradient(135deg, #004ac6, #2563eb);
+      }
+      h1 { font-size: 20px; margin: 8px 0 0; }
+      p { max-width: 420px; margin: 0; opacity: 0.8; font-size: 14px; }
+      button {
+        margin-top: 8px; height: 44px; padding: 0 24px; border: 0; border-radius: 8px;
+        background: #004ac6; color: #fff; font-size: 14px; font-weight: 600; cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo">T</div>
+    <h1>Bạn đang ngoại tuyến</h1>
+    <p>Không có kết nối mạng. Hãy kiểm tra Wi-Fi hoặc dữ liệu di động rồi thử lại. · You are offline — check your connection and try again.</p>
+    <button onclick="location.reload()">Thử lại · Retry</button>
+  </body>
+</html>

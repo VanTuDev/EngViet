@@ -1,0 +1,23 @@
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import { PageHeader } from "@/components/layout/page-header";
+import { ProfileSettingsForm } from "@/components/features/settings/profile-settings-form";
+import { buildPrivateMetadata } from "@/lib/seo";
+import { getCurrentUser } from "@/lib/api/session";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("dash.student.settings");
+  return buildPrivateMetadata(t("meta"));
+}
+
+export default async function StudentSettingsPage() {
+  const t = await getTranslations("dash.student.settings");
+  const tRoles = await getTranslations("roles");
+  const user = await getCurrentUser();
+  return (
+    <>
+      <PageHeader title={t("title")} description={t("desc")} />
+      <ProfileSettingsForm name={user?.fullName ?? ""} email={user?.email ?? ""} roleLabel={tRoles("student")} />
+    </>
+  );
+}

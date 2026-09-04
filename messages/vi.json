@@ -1,0 +1,867 @@
+{
+  "seo": {
+    "tagline": "Nền tảng giao bài tập & luyện thi IELTS tự động cho giáo viên tự do",
+    "description": "TOPTI giúp giáo viên tiếng Anh tự do giao tài liệu, tổ chức thi trắc nghiệm ABCD và minigame ghép từ vựng có bấm giờ, tự động chấm điểm và thống kê kết quả cho lớp luyện thi IELTS.",
+    "keywords": "TOPTI|phần mềm giao bài tập tiếng Anh|luyện thi IELTS online|trắc nghiệm từ vựng ABCD|minigame ghép từ vựng|quản lý lớp học tiếng Anh|chấm điểm tự động|class code học sinh"
+  },
+  "common": {
+    "backToHome": "Về trang chủ",
+    "language": "Ngôn ngữ",
+    "vietnamese": "Tiếng Việt",
+    "english": "Tiếng Anh",
+    "loading": "Đang tải...",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "close": "Đóng",
+    "confirm": "Xác nhận",
+    "back": "Quay lại",
+    "next": "Tiếp tục",
+    "search": "Tìm kiếm",
+    "minutes": "phút",
+    "seconds": "giây",
+    "points": "điểm",
+    "questions": "câu hỏi",
+    "comingSoon": "Sắp có",
+    "skipToContent": "Tới nội dung chính",
+    "perMonth": "/tháng",
+    "custom": "Tùy chỉnh",
+    "popular": "Phổ biến",
+    "selected": "Đang chọn",
+    "contactUs": "Liên hệ chúng tôi",
+    "choosePlan": "Chọn gói này"
+  },
+  "notFound": {
+    "title": "Không tìm thấy trang",
+    "description": "Trang bạn tìm không tồn tại hoặc đã được di chuyển."
+  },
+  "error": {
+    "title": "Đã có lỗi xảy ra",
+    "description": "Xin lỗi, có sự cố khi tải nội dung này. Bạn thử lại nhé.",
+    "retry": "Thử lại",
+    "home": "Về trang chủ"
+  },
+  "joinErrors": {
+    "code_length": "Mã lớp gồm 6 ký tự.",
+    "not_found": "Không tìm thấy lớp học với mã này. Vui lòng kiểm tra lại.",
+    "class_full": "Lớp học đã đạt giới hạn số lượng học sinh của gói cước giáo viên.",
+    "unknown": "Không tham gia được lớp học. Vui lòng thử lại."
+  },
+  "theme": {
+    "system": "Theo hệ thống",
+    "light": "Giao diện sáng",
+    "dark": "Giao diện tối"
+  },
+  "roles": {
+    "admin": "Quản trị viên",
+    "teacher": "Giáo viên",
+    "student": "Học sinh"
+  },
+  "nav": {
+    "teacherDashboard": "Bảng điều khiển",
+    "teacherClasses": "Lớp học của tôi",
+    "teacherAssignments": "Bài tập",
+    "teacherReports": "Thống kê",
+    "teacherBilling": "Thanh toán",
+    "studentDashboard": "Bảng điều khiển",
+    "studentClasses": "Lớp học của tôi",
+    "studentAssignments": "Bài tập",
+    "studentLeaderboard": "Xếp hạng",
+    "adminDashboard": "Tổng quan",
+    "adminTransactions": "Giao dịch",
+    "adminPricingPlans": "Bảng giá",
+    "adminTeachers": "Giáo viên",
+    "settings": "Cài đặt",
+    "helpCenter": "Trung tâm trợ giúp",
+    "logout": "Đăng xuất"
+  },
+  "commandPalette": {
+    "open": "Mở bảng lệnh nhanh",
+    "placeholder": "Tìm trang, lớp học, hành động...",
+    "empty": "Không tìm thấy gì.",
+    "groupNav": "Điều hướng",
+    "groupActions": "Hành động",
+    "groupClasses": "Lớp học",
+    "groupTeachers": "Giáo viên",
+    "actionCreateClass": "Tạo lớp mới",
+    "actionNewAssignment": "Giao bài tập mới",
+    "actionResetDemo": "Đặt lại dữ liệu demo"
+  },
+  "dashboardShell": {
+    "portal": "Cổng {role}",
+    "primaryNav": "Điều hướng chính",
+    "quickNav": "Điều hướng nhanh",
+    "openMenu": "Mở menu điều hướng",
+    "closeMenu": "Đóng menu",
+    "notifications": "Thông báo",
+    "notificationsNew": "{count} thông báo mới",
+    "fallbackTitle": "TOPTI"
+  },
+  "pageTitles": {
+    "fallback": "TOPTI",
+    "teacher": {
+      "dashboard": {
+        "title": "Chào cô Mai! 👋",
+        "subtitle": "Dưới đây là các hoạt động hôm nay."
+      },
+      "classes": {
+        "title": "Lớp học của tôi",
+        "subtitle": "Quản lý danh sách lớp và học sinh."
+      },
+      "assignments": {
+        "title": "Bài tập",
+        "subtitle": "Trắc nghiệm ABCD và minigame ghép từ đã giao."
+      },
+      "reports": {
+        "title": "Thống kê",
+        "subtitle": "Điểm số và tỉ lệ hoàn thành theo lớp."
+      },
+      "billing": {
+        "title": "Thanh toán & Gói cước",
+        "subtitle": "Quản lý gói cước và lịch sử giao dịch."
+      },
+      "settings": {
+        "title": "Cài đặt",
+        "subtitle": "Thông tin tài khoản giáo viên."
+      }
+    },
+    "student": {
+      "dashboard": {
+        "title": "Bảng điều khiển",
+        "subtitle": "Sẵn sàng chinh phục tiếng Anh hôm nay?"
+      },
+      "classes": {
+        "title": "Lớp học của tôi",
+        "subtitle": "Các lớp bạn đang tham gia."
+      },
+      "assignments": {
+        "title": "Bài tập",
+        "subtitle": "Trắc nghiệm và minigame cần hoàn thành."
+      },
+      "leaderboard": {
+        "title": "Bảng xếp hạng",
+        "subtitle": "So tài cùng các bạn trong lớp."
+      },
+      "settings": {
+        "title": "Cài đặt",
+        "subtitle": "Thông tin tài khoản học sinh."
+      }
+    },
+    "admin": {
+      "dashboard": {
+        "title": "Tổng quan hệ thống",
+        "subtitle": "Giám sát doanh thu và hoạt động nền tảng."
+      },
+      "transactions": {
+        "title": "Giao dịch",
+        "subtitle": "Lịch sử thanh toán của giáo viên."
+      },
+      "pricingPlans": {
+        "title": "Bảng giá",
+        "subtitle": "Thiết lập các gói cước cho giáo viên."
+      },
+      "teachers": {
+        "title": "Giáo viên",
+        "subtitle": "Danh sách tài khoản giáo viên trên nền tảng."
+      },
+      "settings": {
+        "title": "Cài đặt",
+        "subtitle": "Cấu hình chung của nền tảng."
+      }
+    }
+  },
+  "marketing": {
+    "nav": {
+      "home": "Trang chủ",
+      "pricing": "Bảng giá",
+      "help": "Trợ giúp",
+      "login": "Đăng nhập",
+      "register": "Dùng thử miễn phí",
+      "openMenu": "Mở menu",
+      "closeMenu": "Đóng menu",
+      "primaryNav": "Điều hướng chính",
+      "mobileNav": "Điều hướng di động"
+    },
+    "footer": {
+      "tagline": "Nền tảng giao bài tập & luyện thi tự động cho giáo viên tiếng Anh tự do.",
+      "productTitle": "Sản phẩm",
+      "supportTitle": "Hỗ trợ",
+      "product": {
+        "pricing": "Bảng giá",
+        "forTeachers": "Dành cho giáo viên",
+        "forStudents": "Dành cho học sinh"
+      },
+      "support": {
+        "helpCenter": "Trung tâm trợ giúp"
+      },
+      "rights": "© {year} {name}. Đã đăng ký bản quyền."
+    },
+    "home": {
+      "metaTitle": "TOPTI - Nền tảng giao bài tập & luyện thi IELTS tự động cho giáo viên tự do",
+      "hero": {
+        "badge": "Dành cho giáo viên tiếng Anh tự do",
+        "title": "Tự động hóa việc giao bài, thi trắc nghiệm và chấm điểm luyện thi IELTS",
+        "subtitle": "TOPTI giúp bạn giao tài liệu, tổ chức thi trắc nghiệm ABCD và minigame ghép từ vựng có bấm giờ, tự động chấm điểm và thống kê kết quả — tất cả trong một nơi.",
+        "ctaPrimary": "Dùng thử miễn phí",
+        "ctaSecondary": "Xem bảng giá",
+        "stats": {
+          "students": "học sinh mỗi lớp",
+          "gradingTime": "thời gian chấm bài",
+          "setupTime": "để có lớp đầu tiên"
+        },
+        "statsValues": {
+          "students": "~60",
+          "gradingTime": "0 phút",
+          "setupTime": "< 5 phút"
+        },
+        "card": {
+          "className": "Lớp IELTS K26",
+          "status": "Đang hoạt động",
+          "rows": {
+            "tech": {
+              "label": "Từ vựng Chủ đề Công nghệ",
+              "meta": "Minigame · còn 2 giờ"
+            },
+            "reading": {
+              "label": "Reading Vocabulary Check - Test 4",
+              "meta": "Trắc nghiệm · 15 phút"
+            },
+            "education": {
+              "label": "Từ vựng Chủ đề Giáo dục",
+              "meta": "Minigame · còn 3 ngày"
+            }
+          }
+        },
+        "art": {
+          "quizPrompt": "\"innovation\" nghĩa là gì?",
+          "quizOption": "sự đổi mới",
+          "rank": "Hạng 1 / 32",
+          "xp": "+120 XP",
+          "graded": "Đã chấm tức thì",
+          "label": "Minh hoạ tổng quan lớp học TOPTI: bảng bài tập, câu hỏi trắc nghiệm, bảng xếp hạng và điểm thưởng."
+        }
+      },
+      "pain": {
+        "title": "Trước khi có TOPTI, mỗi tuần trôi qua là một cuộc chiến với việc quản lý bài tập",
+        "points": [
+          "Bài tập giao qua nhóm chat bị trôi, học sinh tìm lại rất khó.",
+          "Không kiểm soát được thời gian làm bài, học sinh nộp bài trễ tùy tiện.",
+          "Tốn hàng giờ mỗi tuần để chấm bài trắc nghiệm thủ công."
+        ]
+      },
+      "features": {
+        "title": "Mọi thứ giáo viên cần, ở một nơi",
+        "items": [
+          {
+            "title": "Tạo lớp & mã lớp tức thì",
+            "description": "Tạo lớp học chỉ trong vài giây, nhận mã lớp 6 ký tự để học sinh tự tham gia — không cần thêm thủ công từng em."
+          },
+          {
+            "title": "Import Excel, tự sinh bài tập",
+            "description": "Tải lên danh sách từ vựng, hệ thống tự động sinh bài trắc nghiệm ABCD và minigame ghép từ, không cần soạn tay đáp án nhiễu."
+          },
+          {
+            "title": "Minigame & trắc nghiệm bấm giờ",
+            "description": "Đồng hồ đếm ngược tạo áp lực tích cực, xáo trộn ngẫu nhiên đáp án và thẻ từ mỗi lượt chơi để chống gian lận."
+          },
+          {
+            "title": "Chấm điểm tự động tức thì",
+            "description": "Học sinh nộp bài là có điểm ngay, kèm giải thích chi tiết từng câu — không còn cảnh giáo viên ngồi chấm tay hàng giờ."
+          },
+          {
+            "title": "Bảng xếp hạng tạo động lực",
+            "description": "Xếp hạng theo lớp sau mỗi bài tập giúp học sinh có thêm động lực cạnh tranh lành mạnh để luyện tập đều đặn."
+          },
+          {
+            "title": "Thống kê & xuất báo cáo",
+            "description": "Theo dõi tỉ lệ hoàn thành, điểm trung bình theo lớp và xuất báo cáo chi tiết chỉ với một cú nhấp chuột."
+          }
+        ]
+      },
+      "steps": {
+        "title": "Bắt đầu chỉ với 4 bước",
+        "items": [
+          {
+            "title": "Tạo lớp học",
+            "description": "Đặt tên lớp, nhận mã lớp 6 ký tự và gửi cho học sinh."
+          },
+          {
+            "title": "Nhập từ vựng",
+            "description": "Upload file Excel Word/IPA/Meaning/Example, hệ thống tự sinh bài tập."
+          },
+          {
+            "title": "Học sinh làm bài",
+            "description": "Học sinh làm trắc nghiệm ABCD hoặc chơi minigame ghép từ có bấm giờ."
+          },
+          {
+            "title": "Xem báo cáo",
+            "description": "Điểm số được chấm tức thì, bảng xếp hạng và báo cáo cập nhật theo thời gian thực."
+          }
+        ]
+      },
+      "faq": {
+        "title": "Câu hỏi thường gặp",
+        "items": [
+          {
+            "question": "TOPTI phù hợp với những đối tượng nào?",
+            "answer": "TOPTI được thiết kế cho giáo viên tiếng Anh tự do quản lý các lớp luyện thi IELTS, TOEIC và giao tiếp, cùng với học sinh của họ và quản trị viên nền tảng."
+          },
+          {
+            "question": "Học sinh có cần tài khoản trả phí không?",
+            "answer": "Không. Học sinh tạo tài khoản miễn phí và chỉ cần nhập mã lớp 6 ký tự do giáo viên cung cấp để tham gia."
+          },
+          {
+            "question": "Hệ thống tự sinh bài tập từ đâu?",
+            "answer": "Giáo viên chỉ cần tải lên file Excel gồm các cột Word, IPA, Meaning, Example. TOPTI tự động sinh câu hỏi trắc nghiệm ABCD và bài ghép từ vựng, không cần soạn sẵn đáp án nhiễu."
+          },
+          {
+            "question": "Thanh toán gói cước như thế nào?",
+            "answer": "Giáo viên chọn gói theo số lượng học sinh (slot) và quét mã VietQR để thanh toán, tài khoản được kích hoạt ngay sau khi giao dịch thành công."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Sẵn sàng bỏ lại việc chấm bài thủ công?",
+        "subtitle": "Tạo tài khoản giáo viên miễn phí và có lớp học đầu tiên hoạt động trong dưới 5 phút.",
+        "button": "Dùng thử miễn phí ngay"
+      }
+    },
+    "pricing": {
+      "metaTitle": "Bảng giá",
+      "metaDescription": "So sánh các gói cước TOPTI theo số lượng học sinh (slot): Miễn phí, Chuyên nghiệp và Doanh nghiệp.",
+      "title": "Bảng giá đơn giản, theo số học sinh",
+      "subtitle": "Chọn gói phù hợp với quy mô lớp học của bạn. Nâng cấp bất cứ lúc nào khi lớp học phát triển.",
+      "faqTitle": "Câu hỏi về gói cước",
+      "faq": [
+        {
+          "question": "Slot học sinh là gì?",
+          "answer": "Slot là số lượng học sinh tối đa có thể hoạt động đồng thời trong tất cả các lớp của một giáo viên."
+        },
+        {
+          "question": "Tôi có thể nâng cấp gói bất cứ lúc nào không?",
+          "answer": "Có. Bạn có thể nâng cấp gói ngay trong trang Thanh toán và thanh toán phần chênh lệch qua VietQR."
+        }
+      ],
+      "contactPrefix": "Cần tư vấn thêm?",
+      "contactLink": "Liên hệ đội ngũ hỗ trợ"
+    },
+    "help": {
+      "metaTitle": "Trung tâm trợ giúp",
+      "metaDescription": "Hướng dẫn sử dụng TOPTI cho giáo viên và học sinh: tạo lớp, nhập mã lớp, nộp bài và thanh toán gói cước.",
+      "title": "Trung tâm trợ giúp",
+      "subtitle": "Câu trả lời nhanh cho các câu hỏi thường gặp nhất về TOPTI.",
+      "sectionForRole": "Dành cho {role}",
+      "teacherTopics": [
+        {
+          "q": "Làm sao để tạo lớp học?",
+          "a": "Vào Bảng điều khiển giáo viên, nhấn 'Tạo Lớp mới' ở thanh bên, đặt tên lớp và nhận mã lớp 6 ký tự."
+        },
+        {
+          "q": "File Excel từ vựng cần định dạng như thế nào?",
+          "a": "File cần có các cột Word, IPA, Meaning, Example. Hệ thống sẽ tự sinh bài trắc nghiệm và minigame ghép từ từ dữ liệu này."
+        },
+        {
+          "q": "Làm sao để nâng cấp gói cước?",
+          "a": "Vào mục Thanh toán, chọn gói mong muốn và quét mã VietQR để thanh toán. Tài khoản được kích hoạt ngay sau khi giao dịch thành công."
+        }
+      ],
+      "studentTopics": [
+        {
+          "q": "Làm sao để tham gia lớp học?",
+          "a": "Tạo tài khoản miễn phí, sau đó nhập mã lớp 6 ký tự do giáo viên cung cấp ở trang Bảng điều khiển."
+        },
+        {
+          "q": "Nếu hết giờ mà chưa làm xong bài thì sao?",
+          "a": "Hệ thống sẽ tự động khóa bài và gửi kết quả hiện tại về server ngay khi hết thời gian quy định."
+        },
+        {
+          "q": "Tôi có thể xem lại đáp án đúng sau khi nộp bài không?",
+          "a": "Có. Sau khi nộp bài, màn hình kết quả hiển thị giải thích chi tiết cho từng câu hỏi."
+        }
+      ],
+      "contactPrefix": "Vẫn cần hỗ trợ? Liên hệ đội ngũ TOPTI qua"
+    }
+  },
+  "auth": {
+    "brandPanel": {
+      "title": "Dạy tiếng Anh, để phần còn lại cho TOPTI",
+      "subtitle": "Giao bài, chấm điểm và theo dõi tiến độ của cả lớp — tự động, theo thời gian thực.",
+      "points": [
+        "Tự sinh trắc nghiệm ABCD và minigame ghép từ từ danh sách từ vựng",
+        "Chấm điểm tức thì kèm giải thích từng câu",
+        "Bảng xếp hạng và báo cáo cập nhật liên tục"
+      ]
+    },
+    "login": {
+      "metaTitle": "Đăng nhập",
+      "metaDescription": "Đăng nhập TOPTI dành cho giáo viên và học sinh.",
+      "title": "Đăng nhập",
+      "subtitle": "Chào mừng bạn quay lại TOPTI.",
+      "roleTeacher": "Giáo viên",
+      "roleStudent": "Học sinh",
+      "emailLabel": "Email",
+      "emailPlaceholder": "ban@example.com",
+      "passwordLabel": "Mật khẩu",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Đăng nhập",
+      "googleButton": "Đăng nhập với Google",
+      "orDivider": "hoặc",
+      "noAccount": "Chưa có tài khoản?",
+      "registerLink": "Đăng ký giáo viên",
+      "joinLink": "Học sinh vào lớp",
+      "failed": "Đăng nhập thất bại. Kiểm tra lại email và mật khẩu."
+    },
+    "register": {
+      "metaTitle": "Đăng ký giáo viên",
+      "metaDescription": "Tạo tài khoản giáo viên TOPTI miễn phí để bắt đầu quản lý lớp học và giao bài tập tự động.",
+      "title": "Đăng ký tài khoản giáo viên",
+      "subtitle": "Miễn phí, không cần thẻ thanh toán. Nâng cấp khi lớp học của bạn phát triển.",
+      "nameLabel": "Họ và tên",
+      "namePlaceholder": "Nguyễn Thị Mai",
+      "emailLabel": "Email",
+      "emailPlaceholder": "ban@example.com",
+      "passwordLabel": "Mật khẩu",
+      "passwordPlaceholder": "Tối thiểu 6 ký tự",
+      "submit": "Tạo tài khoản",
+      "googleButton": "Đăng ký với Google",
+      "orDivider": "hoặc",
+      "hasAccount": "Đã có tài khoản?",
+      "loginLink": "Đăng nhập",
+      "failed": "Tạo tài khoản thất bại. Vui lòng thử lại.",
+      "roleStudent": "Học sinh",
+      "roleTeacher": "Giáo viên"
+    },
+    "join": {
+      "metaTitle": "Học sinh vào lớp",
+      "metaDescription": "Học sinh tạo tài khoản miễn phí và nhập mã lớp 6 ký tự để tham gia lớp học trên TOPTI.",
+      "title": "Tham gia lớp học",
+      "subtitle": "Nhập mã lớp giáo viên cung cấp, hoặc quét mã QR chiếu trên lớp.",
+      "methodCode": "Nhập mã",
+      "methodScan": "Quét mã QR",
+      "codeRequired": "Vui lòng nhập mã lớp",
+      "codeLength": "Mã lớp gồm {length} ký tự",
+      "codePlaceholder": "vd. A1B2C3",
+      "submit": "Tham gia lớp",
+      "scanTitle": "Mở camera trên điện thoại",
+      "scanBody": "và hướng vào mã QR giáo viên chiếu trên lớp.",
+      "scanHint": "Điện thoại sẽ tự mở trang tham gia lớp — không cần cài thêm ứng dụng nào."
+    },
+    "joinByCode": {
+      "metaTitleValid": "Tham gia {name}",
+      "metaTitleInvalid": "Mã lớp không hợp lệ",
+      "metaDescription": "Quét mã QR từ giáo viên để tham gia lớp học trên TOPTI.",
+      "invalidTitle": "Mã lớp không hợp lệ",
+      "invalidBody": "Mã {code} không tồn tại hoặc đã hết hạn. Hãy xin giáo viên mã QR mới.",
+      "studentsAndTeacher": "{count} học sinh · GV. {teacher}",
+      "confirm": "Xác nhận tham gia"
+    },
+    "callback": {
+      "signingIn": "Đang đăng nhập...",
+      "failed": "Đăng nhập thất bại",
+      "missingCode": "Thiếu mã xác thực trong đường dẫn.",
+      "backToLogin": "Về trang đăng nhập"
+    }
+  },
+  "dash": {
+    "common": {
+      "viewAll": "Xem tất cả",
+      "viewNow": "Xem ngay",
+      "details": "Chi tiết",
+      "open": "Mở",
+      "students": "học sinh",
+      "studentsCount": "{count} học sinh",
+      "questions": "câu hỏi",
+      "words": "từ vựng",
+      "quiz": "Trắc nghiệm",
+      "matching": "Ghép từ",
+      "quizFull": "Trắc nghiệm ABCD",
+      "matchingFull": "Ghép từ vựng",
+      "quizQuestions": "{count} câu hỏi trắc nghiệm",
+      "matchingWords": "{count} từ vựng cần ghép",
+      "deadline": "Hạn chót {date}",
+      "classCode": "Mã lớp: {code}",
+      "codeShort": "Mã {code}",
+      "averageScore": "Điểm trung bình",
+      "completionRate": "Tỉ lệ hoàn thành",
+      "submitted": "Đã nộp bài",
+      "scoreOutOf": "{score}/100",
+      "durationLimit": "Giới hạn {value}",
+      "statusActive": "Hoạt động",
+      "statusArchived": "Lưu trữ",
+      "statusSuspended": "Tạm khóa",
+      "teacherPrefix": "GV. {name}",
+      "points": "điểm",
+      "xp": "XP",
+      "you": "Bạn",
+      "durationSeconds": "{count} giây",
+      "durationMinutes": "{count} phút",
+      "searchClasses": "Tìm lớp theo tên hoặc mã...",
+      "searchAssignments": "Tìm bài tập...",
+      "searchTeachers": "Tìm giáo viên theo tên hoặc email...",
+      "searchStudents": "Tìm học sinh...",
+      "noResults": "Không có kết quả phù hợp."
+    },
+    "teacher": {
+      "metaDashboard": "Bảng điều khiển giáo viên",
+      "stats": {
+        "totalStudents": "Tổng số học sinh",
+        "slotsUsedPct": "{pct}% slot đã sử dụng",
+        "activeClasses": "Lớp đang hoạt động",
+        "pendingGrading": "Chờ chấm điểm",
+        "newStudents7d": "Học sinh mới (7 ngày)"
+      },
+      "slotTrend": "Xu hướng sử dụng Slot",
+      "thisMonth": "Tháng này",
+      "lastMonth": "Tháng trước",
+      "quickActions": "Thao tác nhanh",
+      "createClass": "Tạo Lớp",
+      "newAssignment": "Bài tập mới",
+      "recentActivity": "Hoạt động gần đây",
+      "activity": {
+        "joined": "Trần Văn Nam đã tham gia lớp IELTS K26",
+        "published": "Bài tập 'Từ vựng Chủ đề Công nghệ' đã được phát hành",
+        "maintenance": "Bảo trì hệ thống hoàn tất."
+      },
+      "classes": {
+        "meta": "Lớp học của tôi",
+        "count": "{count} lớp học",
+        "hint": "Nhấn 'Tạo Lớp mới' ở thanh bên để bắt đầu một lớp.",
+        "emptyTitle": "Chưa có lớp học nào",
+        "emptyDesc": "Tạo lớp đầu tiên để bắt đầu mời học sinh."
+      },
+      "classDetail": {
+        "metaFallback": "Lớp học",
+        "studentsTab": "Học sinh ({count})",
+        "assignmentsTab": "Bài tập ({count})",
+        "emptyAssignmentsTitle": "Chưa có bài tập",
+        "emptyAssignmentsDesc": "Tạo bài tập đầu tiên cho lớp này."
+      },
+      "assignments": {
+        "meta": "Bài tập",
+        "title": "Tất cả bài tập",
+        "desc": "Trắc nghiệm ABCD và minigame ghép từ trên toàn bộ lớp học.",
+        "newButton": "Bài tập mới",
+        "emptyTitle": "Chưa có bài tập nào",
+        "emptyDesc": "Import từ vựng để tạo bài tập đầu tiên."
+      },
+      "newAssignmentPage": {
+        "meta": "Tạo bài tập mới",
+        "crumb": "Tạo mới",
+        "title": "Tạo bài tập mới",
+        "desc": "Nhập từ vựng, chọn dạng bài và phát hành cho lớp học."
+      },
+      "report": {
+        "metaFallback": "Bài tập",
+        "deadlineBadge": "Hạn chót {date}",
+        "submittedTile": "Đã nộp bài",
+        "leaderboard": "Bảng xếp hạng",
+        "emptyTitle": "Chưa có học sinh nộp bài",
+        "emptyDesc": "Kết quả sẽ hiển thị ngay khi học sinh hoàn thành bài tập."
+      },
+      "reports": {
+        "meta": "Thống kê",
+        "title": "Thống kê theo lớp",
+        "desc": "Điểm trung bình và tỉ lệ hoàn thành bài tập của từng lớp.",
+        "classSummary": "{students} học sinh · {assignments} bài tập"
+      },
+      "billing": {
+        "meta": "Thanh toán & Gói cước",
+        "title": "Thanh toán & Gói cước",
+        "desc": "Quản lý chi tiết thuê bao và thanh toán của bạn.",
+        "choosePlan": "Chọn gói dịch vụ",
+        "transactionHistory": "Lịch sử giao dịch",
+        "orderSummary": "Tóm tắt đơn hàng",
+        "planRow": "Gói",
+        "planValue": "{name} ({slots} slot)",
+        "nextRenewal": "Gia hạn tiếp theo",
+        "total": "Tổng",
+        "pendingTitle": "Trạng thái: Chờ thanh toán",
+        "pendingBody": "Vui lòng hoàn tất thanh toán để kích hoạt gói của bạn."
+      },
+      "settings": {
+        "meta": "Cài đặt",
+        "title": "Cài đặt tài khoản",
+        "desc": "Thông tin hiển thị với học sinh trong lớp."
+      },
+      "activityEmpty": "Chưa có hoạt động nào."
+    },
+    "student": {
+      "metaDashboard": "Bảng điều khiển học sinh",
+      "greeting": "Chào {name}! Sẵn sàng chinh phục tiếng Anh hôm nay?",
+      "greetingSub": "Hãy tiếp tục phát huy và đạt được mục tiêu band điểm nhé.",
+      "joinNewClass": "Tham gia lớp mới",
+      "joinNewClassDesc": "Nhập mã gồm 6 ký tự do giáo viên cung cấp để tham gia nhóm học tập mới.",
+      "myClasses": "Lớp học của tôi",
+      "noClassesTitle": "Chưa tham gia lớp nào",
+      "noClassesHint": "Nhập mã lớp ở trên để bắt đầu.",
+      "upcomingDeadlines": "Hạn chót sắp tới",
+      "noAssignmentsTitle": "Không có bài tập nào",
+      "noAssignmentsDone": "Bạn đã hoàn thành mọi bài tập!",
+      "viewAllAssignments": "Xem tất cả bài tập",
+      "classes": {
+        "meta": "Lớp học của tôi",
+        "title": "Lớp học của tôi",
+        "desc": "Bạn đang tham gia {count} lớp học.",
+        "emptyTitle": "Chưa tham gia lớp nào",
+        "emptyDesc": "Nhập mã lớp ở Bảng điều khiển để bắt đầu."
+      },
+      "classDetail": {
+        "metaFallback": "Lớp học",
+        "assignmentsTab": "Bài tập ({count})",
+        "leaderboardTab": "Bảng xếp hạng",
+        "emptyAssignmentsTitle": "Chưa có bài tập",
+        "emptyAssignmentsDesc": "Giáo viên chưa giao bài tập nào cho lớp này.",
+        "emptyLeaderboard": "Chưa có dữ liệu xếp hạng"
+      },
+      "assignments": {
+        "meta": "Bài tập",
+        "title": "Bài tập của tôi",
+        "desc": "Trắc nghiệm và minigame ghép từ cần hoàn thành.",
+        "emptyTitle": "Không có bài tập nào",
+        "emptyDesc": "Tham gia một lớp học để nhận bài tập."
+      },
+      "intro": {
+        "metaFallback": "Bài tập",
+        "quizDesc": "Trả lời các câu hỏi trắc nghiệm ABCD trước khi hết giờ. Đáp án sẽ được xáo trộn ngẫu nhiên. Bạn có thể quay lại câu trước để sửa đáp án.",
+        "matchingDesc": "Ghép mỗi từ tiếng Anh với nghĩa tiếng Việt tương ứng trước khi hết giờ. Chọn sai sẽ không bị trừ điểm nhưng làm mất thời gian.",
+        "start": "Bắt đầu làm bài"
+      },
+      "leaderboard": {
+        "meta": "Bảng xếp hạng",
+        "title": "Bảng xếp hạng",
+        "desc": "Thi đua điểm số cùng các bạn trong lớp.",
+        "emptyTitle": "Chưa có lớp học nào",
+        "emptyDesc": "Tham gia một lớp để xem bảng xếp hạng."
+      },
+      "settings": {
+        "meta": "Cài đặt",
+        "title": "Cài đặt tài khoản",
+        "desc": "Thông tin hiển thị với giáo viên và bạn học."
+      }
+    },
+    "admin": {
+      "adminName": "Quản trị viên TOPTI",
+      "dashboard": {
+        "meta": "Tổng quan hệ thống",
+        "monthlyRevenue": "Doanh thu tháng này",
+        "revenueVsLastMonth": "so với tháng trước",
+        "teachers": "Giáo viên",
+        "students": "Học sinh",
+        "classes": "Lớp học",
+        "revenue6m": "Doanh thu 6 tháng gần nhất",
+        "recentTransactions": "Giao dịch gần đây",
+        "colTeacher": "Giáo viên",
+        "colAmount": "Số tiền",
+        "colStatus": "Trạng thái"
+      },
+      "transactions": {
+        "meta": "Giao dịch",
+        "title": "Giao dịch",
+        "desc": "Toàn bộ lịch sử thanh toán gói cước của giáo viên.",
+        "filterAll": "Tất cả",
+        "emptyTitle": "Không có giao dịch nào",
+        "emptyDesc": "Chưa có giao dịch nào khớp bộ lọc này.",
+        "colReference": "Mã tham chiếu",
+        "colTeacher": "Giáo viên",
+        "colPlan": "Gói",
+        "colAmount": "Số tiền",
+        "colStatus": "Trạng thái",
+        "colTime": "Thời gian",
+        "search": "Tìm theo mã tham chiếu hoặc giáo viên..."
+      },
+      "status": {
+        "paid": "Đã thanh toán",
+        "pending": "Chờ thanh toán",
+        "failed": "Thất bại",
+        "expired": "Hết hạn"
+      },
+      "teachers": {
+        "meta": "Giáo viên",
+        "title": "Giáo viên",
+        "desc": "{count} tài khoản giáo viên trên nền tảng.",
+        "colTeacher": "Giáo viên",
+        "colPlan": "Gói",
+        "colSlots": "Sử dụng slot",
+        "colClasses": "Lớp học",
+        "colStatus": "Trạng thái"
+      },
+      "teacherDetail": {
+        "metaFallback": "Giáo viên",
+        "planBadge": "Gói {plan}",
+        "studentSlots": "Slot học sinh",
+        "managingClasses": "{count} lớp học đang quản lý",
+        "classesTitle": "Lớp học",
+        "emptyTitle": "Không có dữ liệu lớp học chi tiết",
+        "emptyDesc": "Giáo viên demo này chưa có lớp học mẫu trong hệ thống.",
+        "classCode": "Mã lớp: {code}"
+      },
+      "pricingPlans": {
+        "meta": "Bảng giá",
+        "title": "Bảng giá",
+        "desc": "Thiết lập giá và số slot học sinh cho từng gói cước hiển thị tại /pricing."
+      },
+      "settings": {
+        "meta": "Cài đặt",
+        "title": "Cài đặt quản trị",
+        "desc": "Thông tin tài khoản quản trị viên."
+      }
+    },
+    "quiz": {
+      "metaPlaying": "Làm bài · {title}",
+      "metaFallback": "Làm bài",
+      "questionProgress": "Câu {current}/{total}",
+      "questionAria": "Câu hỏi {index}",
+      "previous": "Câu trước",
+      "nextQuestion": "Câu tiếp",
+      "submit": "Nộp bài",
+      "questionMap": "Sơ đồ câu hỏi",
+      "answered": "Đã trả lời",
+      "unanswered": "Chưa làm",
+      "answeredProgress": "Đã trả lời {answered}/{total} câu",
+      "submitEarly": "Nộp bài sớm",
+      "timeLeft": "Còn {time}",
+      "keyboardHint": "Mẹo: nhấn A–D để chọn, ← → để chuyển câu",
+      "resultTitle": "Kết quả · {title}",
+      "scorePoints": "{score} điểm",
+      "resultSummary": "{correct}/{total} câu đúng · Hoàn thành trong {time}",
+      "backToClass": "Về lớp học",
+      "viewLeaderboard": "Xem bảng xếp hạng",
+      "explanations": "Giải thích chi tiết",
+      "questionLabel": "Câu {index}: {prompt}",
+      "youPicked": "Bạn đã chọn"
+    },
+    "matching": {
+      "metaPlaying": "Ghép từ · {title}",
+      "metaFallback": "Ghép từ",
+      "label": "Ghép từ vựng",
+      "done": "Hoàn thành · {title}",
+      "pairsProgress": "{matched}/{total} cặp",
+      "resultSummary": "Thời gian: {time} · {mistakes} lần chọn sai",
+      "backToClass": "Về lớp học",
+      "viewLeaderboard": "Xem bảng xếp hạng",
+      "submitEarly": "Nộp bài sớm"
+    },
+    "builder": {
+      "publishedTitle": "Đã phát hành bài tập!",
+      "publishedBody": "\"{title}\" đã được gửi tới học sinh trong lớp đã chọn, hạn chót {deadline}.",
+      "createAnother": "Tạo bài tập khác",
+      "step1": "1. Nhập từ vựng",
+      "step2": "2. Chọn dạng bài tập",
+      "step3": "3. Thiết lập & phát hành",
+      "matchingTab": "Ghép từ (60 giây)",
+      "quizTab": "Trắc nghiệm ABCD",
+      "matchingHint": "Học sinh ghép từ tiếng Anh với nghĩa tiếng Việt trước khi hết giờ. Tối đa 8 cặp từ mỗi lượt chơi.",
+      "matchingPreview": "Xem trước: {count} cặp từ sẽ được xáo trộn ngẫu nhiên.",
+      "quizHint": "Hệ thống tự sinh câu hỏi ABCD từ nghĩa của từ vựng, đáp án nhiễu lấy ngẫu nhiên từ các từ còn lại.",
+      "quizPreview": "Xem trước: {count} câu hỏi đã được tạo.",
+      "titleLabel": "Tên bài tập",
+      "titlePlaceholder": "vd. Từ vựng Tuần 3 - Môi trường",
+      "classLabel": "Lớp học",
+      "durationLabel": "Thời gian giới hạn (giây)",
+      "deadlineLabel": "Hạn chót",
+      "publish": "Phát hành cho lớp",
+      "cannotPublish": "Cần tên bài tập, lớp học và tối thiểu 4 từ vựng hợp lệ."
+    },
+    "uploader": {
+      "dropHere": "Kéo thả file CSV vào đây",
+      "hint": "Xuất từ Excel/Google Sheets (File → Save As → CSV). Các cột: Word, IPA, Meaning, Example",
+      "chooseFile": "Chọn file CSV",
+      "downloadSample": "Tải file mẫu CSV",
+      "validCount": "{count} từ hợp lệ",
+      "errorRows": "{count} dòng lỗi",
+      "readFailed": "Không đọc được file, vui lòng thử lại.",
+      "colRow": "Dòng",
+      "colStatus": "Trạng thái",
+      "rowValid": "Hợp lệ",
+      "missingColumns": "Thiếu cột Word hoặc Meaning bắt buộc.",
+      "duplicateWord": "Từ \"{word}\" bị trùng lặp trong file."
+    },
+    "classDialog": {
+      "trigger": "Tạo Lớp mới",
+      "modalTitle": "Tạo lớp học mới",
+      "readyTitle": "Lớp \"{name}\" đã sẵn sàng!",
+      "readyBody": "Chiếu mã QR này lên lớp — học sinh dùng camera điện thoại quét là vào ngay.",
+      "orReadCode": "Hoặc đọc mã lớp để học sinh tự nhập",
+      "done": "Xong",
+      "nameLabel": "Tên lớp học",
+      "namePlaceholder": "vd. IELTS K27 - Intensive",
+      "nameRequired": "Vui lòng nhập tên lớp học",
+      "descLabel": "Mô tả (không bắt buộc)",
+      "descPlaceholder": "Mục tiêu, lịch học, band điểm hướng tới...",
+      "createAndGetCode": "Tạo lớp & nhận mã",
+      "copyCode": "Sao chép mã lớp",
+      "copied": "Đã sao chép"
+    },
+    "joinForm": {
+      "codeRequired": "Vui lòng nhập mã lớp",
+      "codeLength": "Mã lớp gồm {length} ký tự",
+      "codePlaceholder": "vd. A1B2C3",
+      "codeAria": "Mã lớp học",
+      "scanTooltip": "Quét mã QR thay vì nhập tay",
+      "join": "Tham gia",
+      "scanTitle": "Mở camera trên điện thoại",
+      "scanBody": "và hướng vào mã QR giáo viên chiếu trên lớp.",
+      "scanHint": "Điện thoại sẽ tự mở trang tham gia lớp — không cần cài thêm ứng dụng nào."
+    },
+    "qr": {
+      "classButton": "Mã QR lớp",
+      "classModalBody": "Học sinh dùng camera điện thoại quét mã để vào lớp ngay.",
+      "orManual": "Hoặc đọc mã lớp cho học sinh nhập thủ công",
+      "copyCode": "Sao chép mã lớp",
+      "copied": "Đã sao chép",
+      "assignmentButton": "Mở bài thi cho lớp",
+      "assignmentModalBody": "Chiếu mã này lên lớp — cả lớp dùng camera điện thoại quét và bắt đầu làm bài cùng lúc."
+    },
+    "export": {
+      "button": "Xuất báo cáo",
+      "csvHeader": "Học sinh,Điểm,Số câu đúng,Tổng số câu,Thời gian,Nộp lúc"
+    },
+    "checkout": {
+      "title": "Quét mã thanh toán qua VietQR",
+      "desc": "Mở ứng dụng ngân hàng của bạn và quét mã này.",
+      "qrAria": "Mã QR thanh toán VietQR",
+      "reference": "Mã tham chiếu: {ref}",
+      "copy": "Sao chép",
+      "copied": "Đã sao chép"
+    },
+    "roster": {
+      "emptyTitle": "Chưa có học sinh",
+      "emptyDesc": "Gửi mã lớp cho học sinh để họ tham gia.",
+      "colStudent": "Học sinh",
+      "colEmail": "Email",
+      "colXp": "Điểm kinh nghiệm"
+    },
+    "leaderboard": {
+      "rankUp": "Tăng hạng",
+      "rankDown": "Giảm hạng",
+      "rankSame": "Giữ nguyên hạng"
+    },
+    "settingsForm": {
+      "nameLabel": "Họ và tên",
+      "emailLabel": "Email",
+      "saveChanges": "Lưu thay đổi",
+      "saved": "Đã lưu"
+    },
+    "resetDemo": {
+      "title": "Dữ liệu demo",
+      "desc": "Đưa mọi lớp, học sinh và hồ sơ về trạng thái mẫu ban đầu.",
+      "button": "Đặt lại dữ liệu demo",
+      "confirm": "Đặt lại toàn bộ dữ liệu demo? Các lớp/thay đổi bạn tạo sẽ bị xoá.",
+      "done": "Đã đặt lại"
+    },
+    "planEditor": {
+      "pricePerMonth": "Giá / tháng (VND)",
+      "studentSlots": "Số slot học sinh",
+      "save": "Lưu",
+      "unlimited": "Không giới hạn",
+      "slotsStudents": "{slots} slot học sinh",
+      "unlimitedStudents": "Không giới hạn học sinh",
+      "edit": "Chỉnh sửa"
+    },
+    "deadlineItem": {
+      "expired": "Đã hết hạn",
+      "hoursLeft": "Còn {count} giờ",
+      "today": "Hôm nay",
+      "tomorrow": "Ngày mai"
+    }
+  }
+}

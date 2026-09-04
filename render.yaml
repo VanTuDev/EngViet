@@ -1,0 +1,28 @@
+# Render Blueprint — TOPTI web (topti-web), Next.js 16 frontend.
+# Deploy: push this repo to GitHub → Render Dashboard → New → Blueprint → pick the repo.
+# Full runbook (order, Google Cloud, verification): ../Backend-EngViet/DEPLOY.md
+#
+# ⚠️ NEXT_PUBLIC_* được NHÚNG vào bundle lúc BUILD → sau khi điền/sửa phải "Clear cache & deploy".
+#    API_URL (không có tiền tố NEXT_PUBLIC) đọc lúc chạy → chỉ cần Save + redeploy thường.
+
+services:
+  - name: topti-web
+    type: web
+    runtime: node
+    plan: free # ngủ sau 15' không request; nâng $7/mo để chạy liên tục
+    region: singapore
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm build
+    startCommand: pnpm start
+    envVars:
+      - key: NODE_ENV
+        value: production # bật cờ `secure` cho cookie phiên (topti_at / topti_rt)
+
+      # ── Điền SAU khi biết URL API (xem DEPLOY.md §4) ──
+      # Build-time — phải "Clear cache & deploy" sau khi đổi:
+      - key: NEXT_PUBLIC_API_URL # = https://<URL-API>/api/v1  (vd https://topti-api.onrender.com/api/v1)
+        sync: false
+      - key: NEXT_PUBLIC_SITE_URL # = URL của chính web này (vd https://topti-web.onrender.com)
+        sync: false
+      # Runtime — server-side gọi API (mặc định = NEXT_PUBLIC_API_URL nếu để trống). Đặt cùng giá trị.
+      - key: API_URL # = https://<URL-API>/api/v1
+        sync: false

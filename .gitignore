@@ -1,0 +1,35 @@
+# phụ thuộc
+node_modules/
+
+# kết quả build
+.next/
+out/
+build/
+dist/
+
+# biến môi trường
+.env
+.env.local
+.env.*.local
+
+# log
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# dữ liệu demo bền hoá (mock persistence)
+.data/
+
+# hệ điều hành
+.DS_Store
+Thumbs.db
+
+# editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Next.js
+next-env.d.ts
+.vercel
+*.tsbuildinfo

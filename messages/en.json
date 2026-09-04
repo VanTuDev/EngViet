@@ -1,0 +1,867 @@
+{
+  "seo": {
+    "tagline": "Automated assignment & IELTS practice platform for independent teachers",
+    "description": "TOPTI helps independent English teachers assign material, run timed ABCD quizzes and vocabulary-matching minigames, auto-grade submissions and track results for their IELTS practice classes.",
+    "keywords": "TOPTI|English assignment software|online IELTS practice|ABCD vocabulary quiz|vocabulary matching minigame|English class management|automatic grading|student class code"
+  },
+  "common": {
+    "backToHome": "Back to home",
+    "language": "Language",
+    "vietnamese": "Vietnamese",
+    "english": "English",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Continue",
+    "search": "Search",
+    "minutes": "min",
+    "seconds": "sec",
+    "points": "pts",
+    "questions": "questions",
+    "comingSoon": "Coming soon",
+    "skipToContent": "Skip to main content",
+    "perMonth": "/month",
+    "custom": "Custom",
+    "popular": "Popular",
+    "selected": "Selected",
+    "contactUs": "Contact us",
+    "choosePlan": "Choose this plan"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has been moved."
+  },
+  "error": {
+    "title": "Something went wrong",
+    "description": "Sorry, there was a problem loading this. Please try again.",
+    "retry": "Try again",
+    "home": "Back to home"
+  },
+  "joinErrors": {
+    "code_length": "The class code is 6 characters.",
+    "not_found": "No class found with this code. Please check and try again.",
+    "class_full": "This class has reached the student limit of the teacher's plan.",
+    "unknown": "Could not join the class. Please try again."
+  },
+  "theme": {
+    "system": "Match system",
+    "light": "Light theme",
+    "dark": "Dark theme"
+  },
+  "roles": {
+    "admin": "Administrator",
+    "teacher": "Teacher",
+    "student": "Student"
+  },
+  "nav": {
+    "teacherDashboard": "Dashboard",
+    "teacherClasses": "My classes",
+    "teacherAssignments": "Assignments",
+    "teacherReports": "Reports",
+    "teacherBilling": "Billing",
+    "studentDashboard": "Dashboard",
+    "studentClasses": "My classes",
+    "studentAssignments": "Assignments",
+    "studentLeaderboard": "Leaderboard",
+    "adminDashboard": "Overview",
+    "adminTransactions": "Transactions",
+    "adminPricingPlans": "Pricing",
+    "adminTeachers": "Teachers",
+    "settings": "Settings",
+    "helpCenter": "Help center",
+    "logout": "Sign out"
+  },
+  "commandPalette": {
+    "open": "Open command palette",
+    "placeholder": "Search pages, classes, actions...",
+    "empty": "Nothing found.",
+    "groupNav": "Navigate",
+    "groupActions": "Actions",
+    "groupClasses": "Classes",
+    "groupTeachers": "Teachers",
+    "actionCreateClass": "Create a new class",
+    "actionNewAssignment": "New assignment",
+    "actionResetDemo": "Reset demo data"
+  },
+  "dashboardShell": {
+    "portal": "{role} portal",
+    "primaryNav": "Primary navigation",
+    "quickNav": "Quick navigation",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close menu",
+    "notifications": "Notifications",
+    "notificationsNew": "{count} new notifications",
+    "fallbackTitle": "TOPTI"
+  },
+  "pageTitles": {
+    "fallback": "TOPTI",
+    "teacher": {
+      "dashboard": {
+        "title": "Hi Ms. Mai! 👋",
+        "subtitle": "Here is what is happening today."
+      },
+      "classes": {
+        "title": "My classes",
+        "subtitle": "Manage your class list and students."
+      },
+      "assignments": {
+        "title": "Assignments",
+        "subtitle": "ABCD quizzes and matching minigames you have assigned."
+      },
+      "reports": {
+        "title": "Reports",
+        "subtitle": "Scores and completion rates by class."
+      },
+      "billing": {
+        "title": "Billing & Plans",
+        "subtitle": "Manage your subscription and transaction history."
+      },
+      "settings": {
+        "title": "Settings",
+        "subtitle": "Your teacher account details."
+      }
+    },
+    "student": {
+      "dashboard": {
+        "title": "Dashboard",
+        "subtitle": "Ready to conquer English today?"
+      },
+      "classes": {
+        "title": "My classes",
+        "subtitle": "The classes you have joined."
+      },
+      "assignments": {
+        "title": "Assignments",
+        "subtitle": "Quizzes and minigames to complete."
+      },
+      "leaderboard": {
+        "title": "Leaderboard",
+        "subtitle": "Compete with your classmates."
+      },
+      "settings": {
+        "title": "Settings",
+        "subtitle": "Your student account details."
+      }
+    },
+    "admin": {
+      "dashboard": {
+        "title": "System overview",
+        "subtitle": "Monitor revenue and platform activity."
+      },
+      "transactions": {
+        "title": "Transactions",
+        "subtitle": "Teacher payment history."
+      },
+      "pricingPlans": {
+        "title": "Pricing",
+        "subtitle": "Configure the teacher subscription plans."
+      },
+      "teachers": {
+        "title": "Teachers",
+        "subtitle": "Teacher accounts on the platform."
+      },
+      "settings": {
+        "title": "Settings",
+        "subtitle": "Platform-wide configuration."
+      }
+    }
+  },
+  "marketing": {
+    "nav": {
+      "home": "Home",
+      "pricing": "Pricing",
+      "help": "Help",
+      "login": "Sign in",
+      "register": "Start free trial",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "primaryNav": "Primary navigation",
+      "mobileNav": "Mobile navigation"
+    },
+    "footer": {
+      "tagline": "The automated assignment & practice platform for independent English teachers.",
+      "productTitle": "Product",
+      "supportTitle": "Support",
+      "product": {
+        "pricing": "Pricing",
+        "forTeachers": "For teachers",
+        "forStudents": "For students"
+      },
+      "support": {
+        "helpCenter": "Help center"
+      },
+      "rights": "© {year} {name}. All rights reserved."
+    },
+    "home": {
+      "metaTitle": "TOPTI - Automated assignment & IELTS practice platform for independent teachers",
+      "hero": {
+        "badge": "Built for independent English teachers",
+        "title": "Automate assigning, quizzing and grading for IELTS practice",
+        "subtitle": "TOPTI lets you hand out material, run timed ABCD quizzes and vocabulary-matching minigames, auto-grade submissions and track results — all in one place.",
+        "ctaPrimary": "Start free trial",
+        "ctaSecondary": "See pricing",
+        "stats": {
+          "students": "students per class",
+          "gradingTime": "grading time",
+          "setupTime": "to your first class"
+        },
+        "statsValues": {
+          "students": "~60",
+          "gradingTime": "0 min",
+          "setupTime": "< 5 min"
+        },
+        "card": {
+          "className": "IELTS Class K26",
+          "status": "Active",
+          "rows": {
+            "tech": {
+              "label": "Technology topic vocabulary",
+              "meta": "Minigame · 2 hours left"
+            },
+            "reading": {
+              "label": "Reading Vocabulary Check - Test 4",
+              "meta": "Quiz · 15 min"
+            },
+            "education": {
+              "label": "Education topic vocabulary",
+              "meta": "Minigame · 3 days left"
+            }
+          }
+        },
+        "art": {
+          "quizPrompt": "What does \"innovation\" mean?",
+          "quizOption": "the act of innovating",
+          "rank": "Rank 1 / 32",
+          "xp": "+120 XP",
+          "graded": "Graded instantly",
+          "label": "Illustration of a TOPTI class overview: assignment board, a quiz question, leaderboard and reward points."
+        }
+      },
+      "pain": {
+        "title": "Before TOPTI, every week was a fight to keep assignments under control",
+        "points": [
+          "Assignments sent in group chats scroll away and students struggle to find them.",
+          "No control over timing — students submit late whenever they want.",
+          "Hours every week spent grading multiple-choice work by hand."
+        ]
+      },
+      "features": {
+        "title": "Everything a teacher needs, in one place",
+        "items": [
+          {
+            "title": "Instant classes & class codes",
+            "description": "Create a class in seconds and get a 6-character code students use to join themselves — no adding them one by one."
+          },
+          {
+            "title": "Import a spreadsheet, auto-build assignments",
+            "description": "Upload a vocabulary list and the system generates the ABCD quiz and matching minigame — you never write distractor options."
+          },
+          {
+            "title": "Timed minigames & quizzes",
+            "description": "A countdown adds healthy pressure; options and cards are reshuffled every attempt to discourage cheating."
+          },
+          {
+            "title": "Instant automatic grading",
+            "description": "Students get a score the moment they submit, with a per-question explanation — no more hours of manual marking."
+          },
+          {
+            "title": "Leaderboards that motivate",
+            "description": "A per-class ranking after each assignment gives students healthy competition to keep practising."
+          },
+          {
+            "title": "Reports & exports",
+            "description": "Track completion rates and class averages, and export a detailed report in one click."
+          }
+        ]
+      },
+      "steps": {
+        "title": "Get started in just 4 steps",
+        "items": [
+          {
+            "title": "Create a class",
+            "description": "Name the class, get a 6-character code and share it with students."
+          },
+          {
+            "title": "Import vocabulary",
+            "description": "Upload a Word/IPA/Meaning/Example spreadsheet and assignments are generated for you."
+          },
+          {
+            "title": "Students play",
+            "description": "Students take the ABCD quiz or play the timed matching minigame."
+          },
+          {
+            "title": "Read the report",
+            "description": "Scores are graded instantly; the leaderboard and reports update in real time."
+          }
+        ]
+      },
+      "faq": {
+        "title": "Frequently asked questions",
+        "items": [
+          {
+            "question": "Who is TOPTI for?",
+            "answer": "TOPTI is built for independent English teachers running IELTS, TOEIC and conversation practice classes, along with their students and platform administrators."
+          },
+          {
+            "question": "Do students need a paid account?",
+            "answer": "No. Students create a free account and just enter the 6-character class code the teacher gives them."
+          },
+          {
+            "question": "Where do the generated assignments come from?",
+            "answer": "The teacher uploads a spreadsheet with Word, IPA, Meaning and Example columns. TOPTI generates the ABCD questions and matching game — no need to prepare distractor answers."
+          },
+          {
+            "question": "How does plan payment work?",
+            "answer": "Teachers pick a plan by student-slot count and scan a VietQR code to pay; the account is activated as soon as the transaction succeeds."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Ready to leave manual grading behind?",
+        "subtitle": "Create a free teacher account and have your first class running in under 5 minutes.",
+        "button": "Start your free trial"
+      }
+    },
+    "pricing": {
+      "metaTitle": "Pricing",
+      "metaDescription": "Compare TOPTI plans by student-slot count: Free, Professional and Enterprise.",
+      "title": "Simple pricing, by student count",
+      "subtitle": "Pick the plan that fits your class size. Upgrade any time as your classes grow.",
+      "faqTitle": "Plan questions",
+      "faq": [
+        {
+          "question": "What is a student slot?",
+          "answer": "A slot is the maximum number of students that can be active at the same time across all of a teacher's classes."
+        },
+        {
+          "question": "Can I upgrade any time?",
+          "answer": "Yes. You can upgrade from the Billing page and pay the difference via VietQR."
+        }
+      ],
+      "contactPrefix": "Need advice?",
+      "contactLink": "Contact the support team"
+    },
+    "help": {
+      "metaTitle": "Help center",
+      "metaDescription": "How to use TOPTI for teachers and students: create classes, enter a class code, submit work and pay for a plan.",
+      "title": "Help center",
+      "subtitle": "Quick answers to the most common questions about TOPTI.",
+      "sectionForRole": "For {role}s",
+      "teacherTopics": [
+        {
+          "q": "How do I create a class?",
+          "a": "Open the teacher dashboard, click 'New class' in the sidebar, name the class and get a 6-character code."
+        },
+        {
+          "q": "What format does the vocabulary spreadsheet need?",
+          "a": "The file needs Word, IPA, Meaning and Example columns. The system generates the quiz and matching minigame from that data."
+        },
+        {
+          "q": "How do I upgrade my plan?",
+          "a": "Go to Billing, choose the plan you want and scan the VietQR code to pay. The account is activated as soon as the transaction succeeds."
+        }
+      ],
+      "studentTopics": [
+        {
+          "q": "How do I join a class?",
+          "a": "Create a free account, then enter the 6-character class code your teacher gives you on the dashboard."
+        },
+        {
+          "q": "What happens if time runs out before I finish?",
+          "a": "The system locks the assignment and sends your current result to the server the moment the time limit is reached."
+        },
+        {
+          "q": "Can I review the correct answers after submitting?",
+          "a": "Yes. After you submit, the result screen shows a detailed explanation for every question."
+        }
+      ],
+      "contactPrefix": "Still need help? Contact the TOPTI team at"
+    }
+  },
+  "auth": {
+    "brandPanel": {
+      "title": "Teach English, leave the rest to TOPTI",
+      "subtitle": "Assign, grade and track your whole class — automatically, in real time.",
+      "points": [
+        "Auto-generate ABCD quizzes and matching minigames from a vocabulary list",
+        "Instant grading with a per-question explanation",
+        "Leaderboards and reports that update continuously"
+      ]
+    },
+    "login": {
+      "metaTitle": "Sign in",
+      "metaDescription": "Sign in to TOPTI for teachers and students.",
+      "title": "Sign in",
+      "subtitle": "Welcome back to TOPTI.",
+      "roleTeacher": "Teacher",
+      "roleStudent": "Student",
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Sign in",
+      "googleButton": "Sign in with Google",
+      "orDivider": "or",
+      "noAccount": "No account yet?",
+      "registerLink": "Register as a teacher",
+      "joinLink": "Student join a class",
+      "failed": "Sign-in failed. Check your email and password."
+    },
+    "register": {
+      "metaTitle": "Teacher sign-up",
+      "metaDescription": "Create a free TOPTI teacher account to start managing classes and assigning work automatically.",
+      "title": "Create a teacher account",
+      "subtitle": "Free, no payment card needed. Upgrade as your classes grow.",
+      "nameLabel": "Full name",
+      "namePlaceholder": "Jane Smith",
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "At least 6 characters",
+      "submit": "Create account",
+      "googleButton": "Sign up with Google",
+      "orDivider": "or",
+      "hasAccount": "Already have an account?",
+      "loginLink": "Sign in",
+      "failed": "Could not create the account. Please try again.",
+      "roleStudent": "Student",
+      "roleTeacher": "Teacher"
+    },
+    "join": {
+      "metaTitle": "Student join a class",
+      "metaDescription": "Students create a free account and enter a 6-character class code to join a class on TOPTI.",
+      "title": "Join a class",
+      "subtitle": "Enter the class code your teacher gives you, or scan the QR shown in class.",
+      "methodCode": "Enter code",
+      "methodScan": "Scan QR",
+      "codeRequired": "Please enter the class code",
+      "codeLength": "The class code is {length} characters",
+      "codePlaceholder": "e.g. A1B2C3",
+      "submit": "Join class",
+      "scanTitle": "Open your phone camera",
+      "scanBody": "and point it at the QR code the teacher projects in class.",
+      "scanHint": "Your phone opens the join page automatically — no extra app to install."
+    },
+    "joinByCode": {
+      "metaTitleValid": "Join {name}",
+      "metaTitleInvalid": "Invalid class code",
+      "metaDescription": "Scan the QR code from your teacher to join a class on TOPTI.",
+      "invalidTitle": "Invalid class code",
+      "invalidBody": "Code {code} does not exist or has expired. Ask your teacher for a new QR code.",
+      "studentsAndTeacher": "{count} students · Teacher {teacher}",
+      "confirm": "Confirm and join"
+    },
+    "callback": {
+      "signingIn": "Signing you in...",
+      "failed": "Sign-in failed",
+      "missingCode": "Missing the auth code in the URL.",
+      "backToLogin": "Back to sign in"
+    }
+  },
+  "dash": {
+    "common": {
+      "viewAll": "View all",
+      "viewNow": "View now",
+      "details": "Details",
+      "open": "Open",
+      "students": "students",
+      "studentsCount": "{count} students",
+      "questions": "questions",
+      "words": "words",
+      "quiz": "Quiz",
+      "matching": "Matching",
+      "quizFull": "ABCD quiz",
+      "matchingFull": "Vocabulary matching",
+      "quizQuestions": "{count} quiz questions",
+      "matchingWords": "{count} words to match",
+      "deadline": "Due {date}",
+      "classCode": "Class code: {code}",
+      "codeShort": "Code {code}",
+      "averageScore": "Average score",
+      "completionRate": "Completion rate",
+      "submitted": "Submitted",
+      "scoreOutOf": "{score}/100",
+      "durationLimit": "Limit {value}",
+      "statusActive": "Active",
+      "statusArchived": "Archived",
+      "statusSuspended": "Suspended",
+      "teacherPrefix": "Teacher {name}",
+      "points": "pts",
+      "xp": "XP",
+      "you": "You",
+      "durationSeconds": "{count} sec",
+      "durationMinutes": "{count} min",
+      "searchClasses": "Search classes by name or code...",
+      "searchAssignments": "Search assignments...",
+      "searchTeachers": "Search teachers by name or email...",
+      "searchStudents": "Search students...",
+      "noResults": "No matching results."
+    },
+    "teacher": {
+      "metaDashboard": "Teacher dashboard",
+      "stats": {
+        "totalStudents": "Total students",
+        "slotsUsedPct": "{pct}% of slots used",
+        "activeClasses": "Active classes",
+        "pendingGrading": "Pending grading",
+        "newStudents7d": "New students (7 days)"
+      },
+      "slotTrend": "Slot usage trend",
+      "thisMonth": "This month",
+      "lastMonth": "Last month",
+      "quickActions": "Quick actions",
+      "createClass": "Create class",
+      "newAssignment": "New assignment",
+      "recentActivity": "Recent activity",
+      "activity": {
+        "joined": "Tran Van Nam joined class IELTS K26",
+        "published": "Assignment 'Technology topic vocabulary' was published",
+        "maintenance": "System maintenance complete."
+      },
+      "classes": {
+        "meta": "My classes",
+        "count": "{count} classes",
+        "hint": "Click 'New class' in the sidebar to start a class.",
+        "emptyTitle": "No classes yet",
+        "emptyDesc": "Create your first class to start inviting students."
+      },
+      "classDetail": {
+        "metaFallback": "Class",
+        "studentsTab": "Students ({count})",
+        "assignmentsTab": "Assignments ({count})",
+        "emptyAssignmentsTitle": "No assignments yet",
+        "emptyAssignmentsDesc": "Create the first assignment for this class."
+      },
+      "assignments": {
+        "meta": "Assignments",
+        "title": "All assignments",
+        "desc": "ABCD quizzes and matching minigames across all your classes.",
+        "newButton": "New assignment",
+        "emptyTitle": "No assignments yet",
+        "emptyDesc": "Import vocabulary to create your first assignment."
+      },
+      "newAssignmentPage": {
+        "meta": "Create assignment",
+        "crumb": "New",
+        "title": "Create a new assignment",
+        "desc": "Import vocabulary, pick a format and publish to a class."
+      },
+      "report": {
+        "metaFallback": "Assignment",
+        "deadlineBadge": "Due {date}",
+        "submittedTile": "Submitted",
+        "leaderboard": "Leaderboard",
+        "emptyTitle": "No submissions yet",
+        "emptyDesc": "Results appear as soon as students finish the assignment."
+      },
+      "reports": {
+        "meta": "Reports",
+        "title": "Reports by class",
+        "desc": "Average score and completion rate for each class.",
+        "classSummary": "{students} students · {assignments} assignments"
+      },
+      "billing": {
+        "meta": "Billing & Plans",
+        "title": "Billing & Plans",
+        "desc": "Manage your subscription and payment details.",
+        "choosePlan": "Choose a plan",
+        "transactionHistory": "Transaction history",
+        "orderSummary": "Order summary",
+        "planRow": "Plan",
+        "planValue": "{name} ({slots} slots)",
+        "nextRenewal": "Next renewal",
+        "total": "Total",
+        "pendingTitle": "Status: Awaiting payment",
+        "pendingBody": "Please complete payment to activate your plan."
+      },
+      "settings": {
+        "meta": "Settings",
+        "title": "Account settings",
+        "desc": "Information shown to students in your classes."
+      },
+      "activityEmpty": "No activity yet."
+    },
+    "student": {
+      "metaDashboard": "Student dashboard",
+      "greeting": "Hi {name}! Ready to conquer English today?",
+      "greetingSub": "Keep up the momentum and reach your target band.",
+      "joinNewClass": "Join a new class",
+      "joinNewClassDesc": "Enter the 6-character code from your teacher to join a new study group.",
+      "myClasses": "My classes",
+      "noClassesTitle": "You haven't joined a class yet",
+      "noClassesHint": "Enter a class code above to get started.",
+      "upcomingDeadlines": "Upcoming deadlines",
+      "noAssignmentsTitle": "No assignments",
+      "noAssignmentsDone": "You have finished every assignment!",
+      "viewAllAssignments": "View all assignments",
+      "classes": {
+        "meta": "My classes",
+        "title": "My classes",
+        "desc": "You have joined {count} classes.",
+        "emptyTitle": "You haven't joined a class yet",
+        "emptyDesc": "Enter a class code on the dashboard to get started."
+      },
+      "classDetail": {
+        "metaFallback": "Class",
+        "assignmentsTab": "Assignments ({count})",
+        "leaderboardTab": "Leaderboard",
+        "emptyAssignmentsTitle": "No assignments yet",
+        "emptyAssignmentsDesc": "Your teacher hasn't assigned anything to this class yet.",
+        "emptyLeaderboard": "No ranking data yet"
+      },
+      "assignments": {
+        "meta": "Assignments",
+        "title": "My assignments",
+        "desc": "Quizzes and matching minigames to complete.",
+        "emptyTitle": "No assignments",
+        "emptyDesc": "Join a class to receive assignments."
+      },
+      "intro": {
+        "metaFallback": "Assignment",
+        "quizDesc": "Answer the ABCD quiz questions before time runs out. Options are shuffled randomly. You can go back to a previous question to change your answer.",
+        "matchingDesc": "Match each English word to its Vietnamese meaning before time runs out. Wrong picks aren't penalised but cost you time.",
+        "start": "Start the assignment"
+      },
+      "leaderboard": {
+        "meta": "Leaderboard",
+        "title": "Leaderboard",
+        "desc": "Compete on score with your classmates.",
+        "emptyTitle": "No classes yet",
+        "emptyDesc": "Join a class to see the leaderboard."
+      },
+      "settings": {
+        "meta": "Settings",
+        "title": "Account settings",
+        "desc": "Information shown to your teacher and classmates."
+      }
+    },
+    "admin": {
+      "adminName": "TOPTI Administrator",
+      "dashboard": {
+        "meta": "System overview",
+        "monthlyRevenue": "Revenue this month",
+        "revenueVsLastMonth": "vs last month",
+        "teachers": "Teachers",
+        "students": "Students",
+        "classes": "Classes",
+        "revenue6m": "Revenue, last 6 months",
+        "recentTransactions": "Recent transactions",
+        "colTeacher": "Teacher",
+        "colAmount": "Amount",
+        "colStatus": "Status"
+      },
+      "transactions": {
+        "meta": "Transactions",
+        "title": "Transactions",
+        "desc": "All teacher subscription payment history.",
+        "filterAll": "All",
+        "emptyTitle": "No transactions",
+        "emptyDesc": "No transactions match this filter yet.",
+        "colReference": "Reference",
+        "colTeacher": "Teacher",
+        "colPlan": "Plan",
+        "colAmount": "Amount",
+        "colStatus": "Status",
+        "colTime": "Time",
+        "search": "Search by reference or teacher..."
+      },
+      "status": {
+        "paid": "Paid",
+        "pending": "Awaiting payment",
+        "failed": "Failed",
+        "expired": "Expired"
+      },
+      "teachers": {
+        "meta": "Teachers",
+        "title": "Teachers",
+        "desc": "{count} teacher accounts on the platform.",
+        "colTeacher": "Teacher",
+        "colPlan": "Plan",
+        "colSlots": "Slot usage",
+        "colClasses": "Classes",
+        "colStatus": "Status"
+      },
+      "teacherDetail": {
+        "metaFallback": "Teacher",
+        "planBadge": "{plan} plan",
+        "studentSlots": "Student slots",
+        "managingClasses": "Managing {count} classes",
+        "classesTitle": "Classes",
+        "emptyTitle": "No detailed class data",
+        "emptyDesc": "This demo teacher has no sample classes in the system.",
+        "classCode": "Class code: {code}"
+      },
+      "pricingPlans": {
+        "meta": "Pricing",
+        "title": "Pricing",
+        "desc": "Set the price and student slots for each plan shown at /pricing."
+      },
+      "settings": {
+        "meta": "Settings",
+        "title": "Admin settings",
+        "desc": "Administrator account details."
+      }
+    },
+    "quiz": {
+      "metaPlaying": "In progress · {title}",
+      "metaFallback": "In progress",
+      "questionProgress": "Question {current}/{total}",
+      "questionAria": "Question {index}",
+      "previous": "Previous",
+      "nextQuestion": "Next",
+      "submit": "Submit",
+      "questionMap": "Question map",
+      "answered": "Answered",
+      "unanswered": "Not answered",
+      "answeredProgress": "Answered {answered}/{total} questions",
+      "submitEarly": "Submit early",
+      "timeLeft": "{time} left",
+      "keyboardHint": "Tip: press A–D to answer, ← → to move between questions",
+      "resultTitle": "Result · {title}",
+      "scorePoints": "{score} points",
+      "resultSummary": "{correct}/{total} correct · Finished in {time}",
+      "backToClass": "Back to class",
+      "viewLeaderboard": "View leaderboard",
+      "explanations": "Detailed explanations",
+      "questionLabel": "Q{index}: {prompt}",
+      "youPicked": "You picked"
+    },
+    "matching": {
+      "metaPlaying": "Matching · {title}",
+      "metaFallback": "Matching",
+      "label": "Vocabulary matching",
+      "done": "Complete · {title}",
+      "pairsProgress": "{matched}/{total} pairs",
+      "resultSummary": "Time: {time} · {mistakes} wrong picks",
+      "backToClass": "Back to class",
+      "viewLeaderboard": "View leaderboard",
+      "submitEarly": "Submit early"
+    },
+    "builder": {
+      "publishedTitle": "Assignment published!",
+      "publishedBody": "\"{title}\" was sent to the students in the selected class, due {deadline}.",
+      "createAnother": "Create another assignment",
+      "step1": "1. Import vocabulary",
+      "step2": "2. Pick an assignment type",
+      "step3": "3. Configure & publish",
+      "matchingTab": "Matching (60 sec)",
+      "quizTab": "ABCD quiz",
+      "matchingHint": "Students match English words to Vietnamese meanings before time runs out. Up to 8 pairs per round.",
+      "matchingPreview": "Preview: {count} pairs will be shuffled randomly.",
+      "quizHint": "The system generates ABCD questions from the word meanings; distractors are drawn randomly from the other words.",
+      "quizPreview": "Preview: {count} questions generated.",
+      "titleLabel": "Assignment name",
+      "titlePlaceholder": "e.g. Week 3 vocabulary - Environment",
+      "classLabel": "Class",
+      "durationLabel": "Time limit (seconds)",
+      "deadlineLabel": "Deadline",
+      "publish": "Publish to class",
+      "cannotPublish": "Needs an assignment name, a class and at least 4 valid words."
+    },
+    "uploader": {
+      "dropHere": "Drop a CSV file here",
+      "hint": "Export from Excel/Google Sheets (File → Save As → CSV). Columns: Word, IPA, Meaning, Example",
+      "chooseFile": "Choose CSV file",
+      "downloadSample": "Download sample CSV",
+      "validCount": "{count} valid words",
+      "errorRows": "{count} rows with errors",
+      "readFailed": "Could not read the file, please try again.",
+      "colRow": "Row",
+      "colStatus": "Status",
+      "rowValid": "Valid",
+      "missingColumns": "Missing the required Word or Meaning column.",
+      "duplicateWord": "Word \"{word}\" is duplicated in the file."
+    },
+    "classDialog": {
+      "trigger": "New class",
+      "modalTitle": "Create a new class",
+      "readyTitle": "Class \"{name}\" is ready!",
+      "readyBody": "Project this QR code in class — students scan it with their phone camera and are in immediately.",
+      "orReadCode": "Or read out the class code for students to type in",
+      "done": "Done",
+      "nameLabel": "Class name",
+      "namePlaceholder": "e.g. IELTS K27 - Intensive",
+      "nameRequired": "Please enter a class name",
+      "descLabel": "Description (optional)",
+      "descPlaceholder": "Goals, schedule, target band...",
+      "createAndGetCode": "Create class & get code",
+      "copyCode": "Copy class code",
+      "copied": "Copied"
+    },
+    "joinForm": {
+      "codeRequired": "Please enter the class code",
+      "codeLength": "The class code is {length} characters",
+      "codePlaceholder": "e.g. A1B2C3",
+      "codeAria": "Class code",
+      "scanTooltip": "Scan a QR code instead of typing",
+      "join": "Join",
+      "scanTitle": "Open your phone camera",
+      "scanBody": "and point it at the QR code the teacher projects in class.",
+      "scanHint": "Your phone opens the join page automatically — no extra app to install."
+    },
+    "qr": {
+      "classButton": "Class QR",
+      "classModalBody": "Students scan the code with their phone camera to join the class right away.",
+      "orManual": "Or read out the class code for students to type in",
+      "copyCode": "Copy class code",
+      "copied": "Copied",
+      "assignmentButton": "Open exam for the class",
+      "assignmentModalBody": "Project this code in class — everyone scans it with their phone camera and starts at the same time."
+    },
+    "export": {
+      "button": "Export report",
+      "csvHeader": "Student,Score,Correct,Total,Time,Submitted at"
+    },
+    "checkout": {
+      "title": "Pay by scanning the VietQR code",
+      "desc": "Open your banking app and scan this code.",
+      "qrAria": "VietQR payment QR code",
+      "reference": "Reference: {ref}",
+      "copy": "Copy",
+      "copied": "Copied"
+    },
+    "roster": {
+      "emptyTitle": "No students yet",
+      "emptyDesc": "Share the class code with students so they can join.",
+      "colStudent": "Student",
+      "colEmail": "Email",
+      "colXp": "Experience points"
+    },
+    "leaderboard": {
+      "rankUp": "Moved up",
+      "rankDown": "Moved down",
+      "rankSame": "Unchanged"
+    },
+    "settingsForm": {
+      "nameLabel": "Full name",
+      "emailLabel": "Email",
+      "saveChanges": "Save changes",
+      "saved": "Saved"
+    },
+    "resetDemo": {
+      "title": "Demo data",
+      "desc": "Restore all classes, students and profiles to the original sample state.",
+      "button": "Reset demo data",
+      "confirm": "Reset all demo data? Classes and changes you created will be removed.",
+      "done": "Reset done"
+    },
+    "planEditor": {
+      "pricePerMonth": "Price / month (VND)",
+      "studentSlots": "Student slots",
+      "save": "Save",
+      "unlimited": "Unlimited",
+      "slotsStudents": "{slots} student slots",
+      "unlimitedStudents": "Unlimited students",
+      "edit": "Edit"
+    },
+    "deadlineItem": {
+      "expired": "Expired",
+      "hoursLeft": "{count} hours left",
+      "today": "Today",
+      "tomorrow": "Tomorrow"
+    }
+  }
+}

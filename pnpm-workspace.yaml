@@ -1,0 +1,9 @@
+# Đây KHÔNG phải monorepo — EngViet là project pnpm độc lập (frontend Next.js).
+# File này chỉ để cho phép một số gói chạy script cài đặt (build native).
+# pnpm v10+ mặc định chặn postinstall/build script; khai báo ở đây để bật lại.
+allowBuilds:
+  unrs-resolver: true
+  sharp: true
+  # Hai gói dưới đây chỉ là tối ưu tốc độ tuỳ chọn của toolchain, không bắt buộc build.
+  '@parcel/watcher': false
+  '@swc/core': false
