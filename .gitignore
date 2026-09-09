@@ -7,10 +7,10 @@ out/
 build/
 dist/
 
-# biến môi trường
+# biến môi trường — mọi .env* trừ file mẫu
 .env
-.env.local
-.env.*.local
+.env.*
+!.env.example
 
 # log
 *.log
