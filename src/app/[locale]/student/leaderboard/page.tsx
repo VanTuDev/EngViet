@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function StudentLeaderboardPage() {
   const t = await getTranslations("dash.student.leaderboard");
   const tc = await getTranslations("dash.common");
-  const [myClasses, user] = await Promise.all([getMyClasses(), getCurrentUser()]);
+  const [myClasses, user] = await Promise.all([getMyClasses("enrolled"), getCurrentUser()]);
   const leaderboards = await Promise.all(myClasses.map((c) => getClassLeaderboard(c.id)));
 
   if (myClasses.length === 0) {
@@ -49,7 +49,13 @@ export default async function StudentLeaderboardPage() {
         {myClasses.map((classRoom, index) => (
           <TabsContent key={classRoom.id} value={classRoom.id} className="mt-4">
             <Card className="p-6">
-              <LeaderboardTable entries={leaderboards[index] ?? []} highlightStudentId={user?.id} scoreLabel={tc("xp")} showTime={false} />
+              <LeaderboardTable
+                entries={leaderboards[index] ?? []}
+                highlightStudentId={user?.id}
+                scoreLabel={tc("xp")}
+                showTime={false}
+                showLevel
+              />
             </Card>
           </TabsContent>
         ))}

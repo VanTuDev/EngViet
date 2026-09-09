@@ -4,6 +4,7 @@ import { AntdProvider } from "@/components/antd-provider";
 import { AuthProvider } from "@/components/auth/auth-provider";
 import { getMyClasses } from "@/lib/api/classes";
 import { requireRole } from "@/lib/api/guard";
+import { getMyNotifications } from "@/lib/api/notifications";
 import type { AppLocale } from "@/i18n/routing";
 
 // Khu vực đã đăng nhập, cá nhân hoá — không cache tĩnh.
@@ -18,7 +19,7 @@ export default async function TeacherLayout({
 }) {
   const { locale } = await params;
   const user = await requireRole("teacher", locale);
-  const classes = await getMyClasses();
+  const [classes, notifications] = await Promise.all([getMyClasses("owned"), getMyNotifications()]);
   const commandEntities = classes.map((c) => ({
     kind: "class" as const,
     label: c.name,
@@ -31,7 +32,7 @@ export default async function TeacherLayout({
         <DashboardShell
           role="teacher"
           userName={user.fullName}
-          notificationCount={2}
+          initialNotifications={notifications}
           ctaSlot={<CreateClassDialog />}
           commandEntities={commandEntities}
         >

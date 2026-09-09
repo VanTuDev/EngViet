@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function TeacherClassesPage() {
   const t = await getTranslations("dash.teacher.classes");
   const tc = await getTranslations("dash.common");
-  const classes = await getMyClasses();
+  const classes = await getMyClasses("owned");
 
   return (
     <>

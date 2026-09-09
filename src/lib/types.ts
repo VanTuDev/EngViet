@@ -4,15 +4,57 @@
 
 export type Role = "admin" | "teacher" | "student";
 
+export interface EarnedBadge {
+  code: string;
+  earnedAt: string;
+}
+
 /** The authenticated user, as returned by `GET /users/me` and the auth endpoints. */
 export interface ApiUser {
   id: string;
   email: string;
   fullName: string;
   role: Role;
+  /** Email confirmed via the verification link — this is what unlocks the teacher workspace for a student. */
+  emailVerified: boolean;
+  /** `role === "teacher"` OR a student who has verified their email. The one flag the UI gates "teacher mode" on. */
+  canTeach: boolean;
   avatarUrl?: string;
+  /** ISO date. */
+  dateOfBirth?: string;
+  bio?: string;
+  learningGoal?: string;
   xp: number;
+  /** Derived from `xp` by the backend. */
+  level: number;
+  /** Title code shown next to the name (the user's pick, or the highest their level unlocks). */
+  title: string;
+  badges: EarnedBadge[];
   createdAt: string;
+}
+
+/** `GET /gamification/me` — the profile page's level bar, title picker and badge grid. */
+export interface GamificationSummary {
+  xp: number;
+  level: number;
+  levelXp: number;
+  span: number;
+  toNext: number;
+  displayTitle: string;
+  unlockedTitleCodes: string[];
+  badges: EarnedBadge[];
+  streakDays: number;
+  streakBonusActive: boolean;
+  masteredWords: number;
+}
+
+/** The XP/level/badge outcome of a quiz, matching game or SRS review — drives the celebration. */
+export interface XpReward {
+  awarded: number;
+  multiplier: number;
+  leveledUp: boolean;
+  level: number;
+  newBadges: string[];
 }
 
 export interface UserProfile {
@@ -185,6 +227,8 @@ export interface AttemptResult {
   timeTakenSeconds: number;
   submittedAt: string;
   review?: QuestionReview[];
+  /** Only present on the submit response (not when re-fetching a past result). */
+  xp?: XpReward;
 }
 
 // ---------------------------------------------------------------------------
@@ -207,6 +251,243 @@ export interface ClassPerformanceSummary {
   completionRate: number; // 0-100
   totalAssignments: number;
   totalStudents: number;
+}
+
+// ---------------------------------------------------------------------------
+// Live minigame ("phòng chơi realtime") — teacher-hosted, Kahoot-style
+// ---------------------------------------------------------------------------
+
+export type GameQuestionKind = "multiple_choice" | "fill_blank" | "scramble";
+
+export interface GameQuestion {
+  prompt: string;
+  imageUrl?: string;
+  kind: GameQuestionKind;
+  timeLimitSeconds: number;
+  /** `multiple_choice` — exactly 4, in on-screen A/B/C/D order (array position is the key). */
+  options?: string[];
+  /** `multiple_choice` — index into `options`. */
+  correctIndex?: number;
+  /** `fill_blank` — answers accepted verbatim; anything else the AI judges at reveal. */
+  acceptedAnswers?: string[];
+  /** `scramble` — the target word the shuffled letters spell. */
+  answer?: string;
+}
+
+/**
+ * What a student's device sees before answering — never `correctIndex` / `answer` / `acceptedAnswers`.
+ * `options` for `multiple_choice`, `scrambledLetters` (a shuffle of the target word) for `scramble`,
+ * prompt-only for `fill_blank`.
+ */
+export type PlayableGameQuestion = Omit<GameQuestion, "correctIndex" | "answer" | "acceptedAnswers"> & {
+  scrambledLetters?: string[];
+};
+
+export interface QuizSetSummary {
+  id: string;
+  title: string;
+  questionCount: number;
+  createdAt: string;
+}
+
+export interface QuizSet {
+  id: string;
+  title: string;
+  questions: GameQuestion[];
+  createdAt: string;
+}
+
+export type GameSessionStatus = "lobby" | "question" | "reveal" | "finished";
+export type GameTopCount = 3 | 5 | 10;
+
+export interface GameSession {
+  id: string;
+  pin: string;
+  status: GameSessionStatus;
+  title: string;
+  questionCount: number;
+  topCount: GameTopCount;
+  currentQuestionIndex: number;
+  classId?: string;
+  createdAt: string;
+}
+
+export interface GameLeaderboardEntry {
+  rank: number;
+  studentId: string;
+  studentName: string;
+  avatarUrl?: string;
+  level?: number;
+  title?: string;
+  score: number;
+}
+
+// ---------------------------------------------------------------------------
+// Exam schedule — realtime notifications ("nhắc lịch thi")
+// ---------------------------------------------------------------------------
+
+export type AppNotificationType =
+  | "new_assignment"
+  | "deadline_reminder"
+  | "srs_review_due"
+  | "badge_earned"
+  | "email_verification";
+
+/** Named `AppNotification`, not `Notification` — that name collides with the browser's own global `Notification` API. */
+export interface AppNotification {
+  id: string;
+  type: AppNotificationType;
+  title: string;
+  message: string;
+  classId?: string;
+  assignmentId?: string;
+  read: boolean;
+  createdAt: string;
+}
+
+// ---------------------------------------------------------------------------
+// Spaced-repetition vocabulary review ("ôn từ vựng") — SM-2
+// ---------------------------------------------------------------------------
+
+export type SrsGrade = "again" | "hard" | "good" | "easy";
+
+export interface SrsCard {
+  id: string;
+  word: string;
+  ipa: string;
+  meaning: string;
+  example: string;
+  /** Never reviewed before. */
+  isNew: boolean;
+  /** Missed in a quiz at least once. */
+  fromMistake: boolean;
+  repetitions: number;
+  intervalDays: number;
+  easeFactor: number;
+}
+
+export interface SrsStreak {
+  current: number;
+  longest: number;
+  reviewedToday: boolean;
+}
+
+export interface SrsReviewQueue {
+  cards: SrsCard[];
+  dueCount: number;
+  newCount: number;
+  streak: SrsStreak;
+  reviewedToday: number;
+}
+
+export interface SrsGradeResult {
+  advanced: boolean;
+  intervalDays: number;
+  dueAt: string;
+  xpAwarded: number;
+  streak: SrsStreak;
+  reviewedToday: number;
+}
+
+export interface SrsSummary {
+  dueCount: number;
+  totalCards: number;
+  reviewedToday: number;
+  streak: SrsStreak;
+}
+
+export interface SrsHardWord {
+  word: string;
+  meaning: string;
+  learners: number;
+  totalLapses: number;
+  strugglingLearners: number;
+}
+
+export interface SrsStreakLeaderRow {
+  studentId: string;
+  studentName: string;
+  avatarUrl?: string;
+  level: number;
+  currentStreak: number;
+  dueCount: number;
+  lastReviewDayKey: string | null;
+}
+
+export interface SrsInsights {
+  classId: string;
+  className: string;
+  totalStudents: number;
+  activeLearners: number;
+  reviewedTodayCount: number;
+  hardestWords: SrsHardWord[];
+  streakLeaders: SrsStreakLeaderRow[];
+  needNudge: SrsStreakLeaderRow[];
+}
+
+// ---------------------------------------------------------------------------
+// Shareable vocabulary decks ("bộ thẻ")
+// ---------------------------------------------------------------------------
+
+export interface DeckEntry {
+  word: string;
+  ipa: string;
+  meaning: string;
+  example: string;
+}
+
+/** Full deck (owner or class-member view). */
+export interface VocabDeck {
+  id: string;
+  ownerId: string;
+  ownerRole: Role;
+  ownerName?: string;
+  title: string;
+  description: string;
+  shareCode: string;
+  classId?: string;
+  className?: string;
+  entryCount: number;
+  importCount: number;
+  entries: DeckEntry[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+/** List row — no entries. */
+export interface DeckSummary {
+  id: string;
+  title: string;
+  description: string;
+  shareCode: string;
+  ownerRole: Role;
+  ownerName?: string;
+  mine: boolean;
+  classId?: string;
+  entryCount: number;
+  importCount: number;
+  updatedAt: string;
+}
+
+/** What a share code shows before you import. */
+export interface DeckPreview {
+  id: string;
+  title: string;
+  description: string;
+  shareCode: string;
+  ownerName?: string;
+  ownerRole: Role;
+  entryCount: number;
+  importCount: number;
+  sampleWords: string[];
+  alreadyMine: boolean;
+}
+
+export interface DeckImportResult {
+  deckId: string;
+  deckTitle: string;
+  cardsAdded: number;
+  alreadyHad: number;
 }
 
 // ---------------------------------------------------------------------------

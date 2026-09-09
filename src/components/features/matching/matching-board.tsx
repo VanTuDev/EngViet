@@ -2,19 +2,20 @@
 
 import { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
-import { CheckCircleOutlined, SmileOutlined, ReloadOutlined, ThunderboltOutlined } from "@/components/icons";
+import { CheckCircleOutlined, FireOutlined, SmileOutlined, ReloadOutlined, ThunderboltOutlined } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Confetti } from "@/components/motion/confetti";
 import { TimerRing } from "@/components/motion/timer-ring";
+import { XpRewardBanner } from "@/components/features/gamification/xp-reward-banner";
 import { Link } from "@/i18n/navigation";
 import { useCountdown } from "@/hooks/use-countdown";
 import { useCountUp } from "@/hooks/use-count-up";
 import { generateMatchingBoard, type MatchingCard } from "@/lib/generators";
 import { submitMatching } from "@/lib/actions";
 import { cn, formatDuration, haptic } from "@/lib/utils";
-import type { VocabularyItem } from "@/lib/types";
+import type { AttemptResult, VocabularyItem } from "@/lib/types";
 
 export interface MatchingBoardProps {
   assignmentId: string;
@@ -54,6 +55,7 @@ export function MatchingBoard({
   const [finished, setFinished] = useState(false);
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
   const [serverScore, setServerScore] = useState<number | null>(null);
+  const [xpReward, setXpReward] = useState<AttemptResult["xp"] | null>(null);
   const startedAt = useState(() => Date.now())[0];
 
   const { secondsLeft } = useCountdown(durationSeconds, {
@@ -72,7 +74,10 @@ export function MatchingBoard({
       mistakes,
       timeTakenSeconds: secs,
     });
-    if (res.ok) setServerScore(res.result.score);
+    if (res.ok) {
+      setServerScore(res.result.score);
+      setXpReward(res.result.xp ?? null);
+    }
   }
 
   function handleCardClick(card: MatchingCard) {
@@ -111,6 +116,7 @@ export function MatchingBoard({
       mistakes={mistakes}
       bestStreak={bestStreak}
       score={serverScore}
+      xpReward={xpReward}
       classHref={classHref}
       leaderboardHref={leaderboardHref}
     />;
@@ -129,9 +135,9 @@ export function MatchingBoard({
           {streak >= 2 ? (
             <span
               key={streak}
-              className="rounded-full bg-tertiary-container/70 px-2.5 py-1 font-heading text-[13px] font-bold text-on-tertiary-container motion-safe:[animation:pop-in_0.3s_ease-out]"
+              className="flex items-center gap-1 rounded-full bg-tertiary-container/70 px-2.5 py-1 font-heading text-[13px] font-bold text-on-tertiary-container motion-safe:[animation:pop-in_0.3s_ease-out]"
             >
-              🔥 x{streak}
+              <FireOutlined /> x{streak}
             </span>
           ) : null}
           <TimerRing secondsLeft={secondsLeft} totalSeconds={durationSeconds} label={String(secondsLeft)} size={56} />
@@ -166,6 +172,7 @@ function MatchingResult({
   mistakes,
   bestStreak,
   score,
+  xpReward,
   classHref,
   leaderboardHref,
 }: {
@@ -176,6 +183,7 @@ function MatchingResult({
   mistakes: number;
   bestStreak: number;
   score: number | null;
+  xpReward: AttemptResult["xp"] | null;
   classHref: string;
   leaderboardHref: string;
 }) {
@@ -193,11 +201,18 @@ function MatchingResult({
         <p className="font-heading text-headline-xl text-on-surface tabular-nums">
           {t("pairsProgress", { matched: shownMatched, total: totalPairs })}
         </p>
-        <p className="text-body-sm text-on-surface-variant">
-          {score !== null ? `${score} / 100 · ` : ""}
-          {t("resultSummary", { time: formatDuration(elapsedSeconds), mistakes })}
-          {bestStreak >= 3 ? ` · 🔥 x${bestStreak}` : ""}
+        <p className="flex flex-wrap items-center justify-center gap-x-1.5 text-body-sm text-on-surface-variant">
+          <span>
+            {score !== null ? `${score} / 100 · ` : ""}
+            {t("resultSummary", { time: formatDuration(elapsedSeconds), mistakes })}
+          </span>
+          {bestStreak >= 3 ? (
+            <span className="flex items-center gap-1 text-tertiary">
+              · <FireOutlined /> x{bestStreak}
+            </span>
+          ) : null}
         </p>
+        {xpReward ? <XpRewardBanner reward={xpReward} seedKey={`match-${title}`} /> : null}
         <div className="mt-4 flex flex-wrap justify-center gap-3">
           <Button asChild variant="secondary">
             <Link href={classHref}>{t("backToClass")}</Link>

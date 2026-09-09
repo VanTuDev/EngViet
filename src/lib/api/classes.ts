@@ -34,9 +34,15 @@ function toClass(d: ClassDto): ClassRoom {
   };
 }
 
-/** Teacher: classes they own. Student: classes they've joined. */
-export async function getMyClasses(): Promise<ClassRoom[]> {
-  const res = await apiServer<Paginated<ClassDto>>("/classes/mine?limit=100");
+/**
+ * `scope: "owned"` = classes I teach, `"enrolled"` = classes I joined. Omit to let the
+ * backend fall back to my role — but a dual-capable user (a verified student in the teacher
+ * workspace, or vice versa) must pass an explicit scope, so the teacher pages pass `"owned"`
+ * and the student pages pass `"enrolled"`.
+ */
+export async function getMyClasses(scope?: "owned" | "enrolled"): Promise<ClassRoom[]> {
+  const query = scope ? `?limit=100&scope=${scope}` : "?limit=100";
+  const res = await apiServer<Paginated<ClassDto>>(`/classes/mine${query}`);
   return res.data.map(toClass);
 }
 

@@ -33,7 +33,7 @@ export default async function TeacherClassDetailPage({ params }: { params: Promi
 
   const [students, assignments, performance] = await Promise.all([
     getClassRoster(classId),
-    getAssignments(classId),
+    getAssignments(classId, "owned"),
     getClassPerformance(classId),
   ]);
 

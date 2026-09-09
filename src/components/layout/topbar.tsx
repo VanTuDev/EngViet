@@ -1,18 +1,21 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { BellOutlined, MenuOutlined } from "@/components/icons";
+import { MenuOutlined } from "@/components/icons";
 import { Avatar } from "@/components/ui/avatar";
 import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
+import { NotificationBell } from "@/components/features/notifications/notification-bell";
 import { siteConfig } from "@/lib/site";
+import type { AppNotification, Role } from "@/lib/types";
 
 export function TopBar({
   title,
   subtitle,
   userName,
   avatarUrl,
-  notificationCount = 0,
+  role,
+  initialNotifications,
   showCommand = false,
   onMenuClick,
 }: {
@@ -20,7 +23,8 @@ export function TopBar({
   subtitle?: string;
   userName: string;
   avatarUrl?: string;
-  notificationCount?: number;
+  role: Role;
+  initialNotifications: AppNotification[];
   showCommand?: boolean;
   onMenuClick: () => void;
 }) {
@@ -58,16 +62,7 @@ export function TopBar({
         ) : null}
         <ThemeToggle />
         <LanguageSwitcher variant="compact" className="hidden sm:inline-flex" />
-        <button
-          type="button"
-          className="relative rounded-full p-2 text-xl text-on-surface-variant transition-colors hover:bg-surface-variant hover:text-primary"
-          aria-label={notificationCount > 0 ? t("notificationsNew", { count: notificationCount }) : t("notifications")}
-        >
-          <BellOutlined />
-          {notificationCount > 0 ? (
-            <span className="absolute right-1.5 top-1.5 h-2.5 w-2.5 rounded-full bg-error ring-2 ring-surface" />
-          ) : null}
-        </button>
+        <NotificationBell role={role} initial={initialNotifications} />
         <Avatar name={userName} src={avatarUrl} />
       </div>
     </header>

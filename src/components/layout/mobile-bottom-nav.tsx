@@ -16,7 +16,7 @@ export function MobileBottomNav({ role }: { role: Role }) {
   return (
     <nav
       aria-label={tShell("quickNav")}
-      className="h-bottom-nav fixed bottom-0 left-0 z-40 flex w-full items-stretch justify-between border-t border-outline-variant bg-surface-container-low px-2 md:hidden"
+      className="h-bottom-nav fixed bottom-0 left-0 z-40 flex w-full items-stretch justify-between border-t border-outline-variant/60 bg-surface-container-low px-2 md:hidden"
     >
       {items.map((item) => {
         const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
@@ -32,7 +32,7 @@ export function MobileBottomNav({ role }: { role: Role }) {
             )}
           >
             {active ? (
-              <span className="rounded-full bg-primary-container px-4 py-1 text-base text-on-primary-container">
+              <span className="rounded-full bg-primary/10 px-4 py-1 text-base text-primary">
                 <Icon />
               </span>
             ) : (

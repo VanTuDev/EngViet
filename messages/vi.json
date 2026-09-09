@@ -60,11 +60,17 @@
     "teacherDashboard": "Bảng điều khiển",
     "teacherClasses": "Lớp học của tôi",
     "teacherAssignments": "Bài tập",
+    "teacherSchedule": "Lịch thi",
+    "teacherGames": "Minigame",
+    "teacherVocabulary": "Từ vựng lớp",
     "teacherReports": "Thống kê",
     "teacherBilling": "Thanh toán",
     "studentDashboard": "Bảng điều khiển",
     "studentClasses": "Lớp học của tôi",
     "studentAssignments": "Bài tập",
+    "studentReview": "Ôn từ vựng",
+    "studentSchedule": "Lịch thi",
+    "joinGame": "Vào phòng chơi",
     "studentLeaderboard": "Xếp hạng",
     "adminDashboard": "Tổng quan",
     "adminTransactions": "Giao dịch",
@@ -72,7 +78,15 @@
     "adminTeachers": "Giáo viên",
     "settings": "Cài đặt",
     "helpCenter": "Trung tâm trợ giúp",
-    "logout": "Đăng xuất"
+    "logout": "Đăng xuất",
+    "collapseSidebar": "Thu gọn thanh bên",
+    "expandSidebar": "Mở rộng thanh bên",
+    "groups": {
+      "manage": "Quản trị",
+      "learn": "Học tập",
+      "settings": "Cài đặt"
+    },
+    "studentDecks": "Bộ thẻ"
   },
   "commandPalette": {
     "open": "Mở bảng lệnh nhanh",
@@ -92,16 +106,15 @@
     "quickNav": "Điều hướng nhanh",
     "openMenu": "Mở menu điều hướng",
     "closeMenu": "Đóng menu",
-    "notifications": "Thông báo",
-    "notificationsNew": "{count} thông báo mới",
     "fallbackTitle": "TOPTI"
   },
   "pageTitles": {
     "fallback": "TOPTI",
+    "greeting": "Chào {name}! 👋",
     "teacher": {
       "dashboard": {
-        "title": "Chào cô Mai! 👋",
-        "subtitle": "Dưới đây là các hoạt động hôm nay."
+        "title": "Bảng điều khiển",
+        "subtitle": "Tổng quan hoạt động lớp học hôm nay."
       },
       "classes": {
         "title": "Lớp học của tôi",
@@ -110,6 +123,18 @@
       "assignments": {
         "title": "Bài tập",
         "subtitle": "Trắc nghiệm ABCD và minigame ghép từ đã giao."
+      },
+      "schedule": {
+        "title": "Lịch thi",
+        "subtitle": "Các bài kiểm tra sắp tới trong 2 tuần."
+      },
+      "games": {
+        "title": "Minigame",
+        "subtitle": "Tạo bộ câu hỏi và tổ chức phòng chơi trắc nghiệm realtime."
+      },
+      "vocabulary": {
+        "title": "Từ vựng của lớp",
+        "subtitle": "Từ nào học sinh hay quên, ai đang chăm ôn."
       },
       "reports": {
         "title": "Thống kê",
@@ -137,6 +162,18 @@
         "title": "Bài tập",
         "subtitle": "Trắc nghiệm và minigame cần hoàn thành."
       },
+      "review": {
+        "title": "Ôn từ vựng",
+        "subtitle": "Ôn lại đúng lúc để nhớ từ lâu hơn."
+      },
+      "schedule": {
+        "title": "Lịch thi",
+        "subtitle": "Các bài kiểm tra sắp tới trong 2 tuần."
+      },
+      "games": {
+        "title": "Phòng chơi",
+        "subtitle": "Vào phòng chơi trắc nghiệm realtime bằng mã PIN."
+      },
       "leaderboard": {
         "title": "Bảng xếp hạng",
         "subtitle": "So tài cùng các bạn trong lớp."
@@ -144,6 +181,10 @@
       "settings": {
         "title": "Cài đặt",
         "subtitle": "Thông tin tài khoản học sinh."
+      },
+      "decks": {
+        "title": "Bộ thẻ",
+        "subtitle": "Tạo, chia sẻ và ôn tập các bộ từ vựng"
       }
     },
     "admin": {
@@ -176,6 +217,7 @@
       "help": "Trợ giúp",
       "login": "Đăng nhập",
       "register": "Dùng thử miễn phí",
+      "dashboard": "Vào bảng điều khiển",
       "openMenu": "Mở menu",
       "closeMenu": "Đóng menu",
       "primaryNav": "Điều hướng chính",
@@ -396,8 +438,6 @@
       "metaDescription": "Đăng nhập TOPTI dành cho giáo viên và học sinh.",
       "title": "Đăng nhập",
       "subtitle": "Chào mừng bạn quay lại TOPTI.",
-      "roleTeacher": "Giáo viên",
-      "roleStudent": "Học sinh",
       "emailLabel": "Email",
       "emailPlaceholder": "ban@example.com",
       "passwordLabel": "Mật khẩu",
@@ -406,29 +446,32 @@
       "googleButton": "Đăng nhập với Google",
       "orDivider": "hoặc",
       "noAccount": "Chưa có tài khoản?",
-      "registerLink": "Đăng ký giáo viên",
+      "registerLink": "Đăng ký",
       "joinLink": "Học sinh vào lớp",
       "failed": "Đăng nhập thất bại. Kiểm tra lại email và mật khẩu."
     },
     "register": {
-      "metaTitle": "Đăng ký giáo viên",
-      "metaDescription": "Tạo tài khoản giáo viên TOPTI miễn phí để bắt đầu quản lý lớp học và giao bài tập tự động.",
-      "title": "Đăng ký tài khoản giáo viên",
-      "subtitle": "Miễn phí, không cần thẻ thanh toán. Nâng cấp khi lớp học của bạn phát triển.",
+      "metaTitle": "Đăng ký",
+      "metaDescription": "Tạo tài khoản TOPTI miễn phí — học sinh và giáo viên đều bắt đầu ở đây.",
+      "title": "Tạo tài khoản TOPTI",
+      "subtitle": "Miễn phí, không cần thẻ. Xác thực email sau để mở khoá chế độ giáo viên.",
       "nameLabel": "Họ và tên",
       "namePlaceholder": "Nguyễn Thị Mai",
       "emailLabel": "Email",
       "emailPlaceholder": "ban@example.com",
       "passwordLabel": "Mật khẩu",
-      "passwordPlaceholder": "Tối thiểu 6 ký tự",
+      "passwordPlaceholder": "Tối thiểu 8 ký tự",
       "submit": "Tạo tài khoản",
       "googleButton": "Đăng ký với Google",
       "orDivider": "hoặc",
       "hasAccount": "Đã có tài khoản?",
       "loginLink": "Đăng nhập",
       "failed": "Tạo tài khoản thất bại. Vui lòng thử lại.",
-      "roleStudent": "Học sinh",
-      "roleTeacher": "Giáo viên"
+      "successTitle": "Tài khoản đã sẵn sàng!",
+      "successBody": "Chúng tôi đã gửi một liên kết xác thực tới email của bạn. Xác thực để mở khoá chế độ giáo viên — hoặc bắt đầu học ngay bây giờ.",
+      "devLinkNote": "Chế độ phát triển: dùng liên kết bên dưới để xác thực ngay.",
+      "verifyNow": "Xác thực email ngay",
+      "continueToApp": "Vào học ngay"
     },
     "join": {
       "metaTitle": "Học sinh vào lớp",
@@ -459,6 +502,16 @@
       "failed": "Đăng nhập thất bại",
       "missingCode": "Thiếu mã xác thực trong đường dẫn.",
       "backToLogin": "Về trang đăng nhập"
+    },
+    "verifyEmail": {
+      "metaTitle": "Xác thực email",
+      "metaDescription": "Xác thực địa chỉ email để mở khoá chế độ giáo viên trên TOPTI.",
+      "working": "Đang xác thực email...",
+      "okTitle": "Đã xác thực!",
+      "okBody": "Chế độ giáo viên đã được mở khoá. Đang chuyển bạn tới khu quản trị...",
+      "failed": "Xác thực thất bại",
+      "missingToken": "Thiếu mã xác thực trong đường dẫn.",
+      "backToSettings": "Về trang cài đặt"
     }
   },
   "dash": {
@@ -586,7 +639,7 @@
     },
     "student": {
       "metaDashboard": "Bảng điều khiển học sinh",
-      "greeting": "Chào {name}! Sẵn sàng chinh phục tiếng Anh hôm nay?",
+      "greeting": "Sẵn sàng chinh phục tiếng Anh hôm nay chưa, {name}?",
       "greetingSub": "Hãy tiếp tục phát huy và đạt được mục tiêu band điểm nhé.",
       "joinNewClass": "Tham gia lớp mới",
       "joinNewClassDesc": "Nhập mã gồm 6 ký tự do giáo viên cung cấp để tham gia nhóm học tập mới.",
@@ -610,7 +663,8 @@
         "leaderboardTab": "Bảng xếp hạng",
         "emptyAssignmentsTitle": "Chưa có bài tập",
         "emptyAssignmentsDesc": "Giáo viên chưa giao bài tập nào cho lớp này.",
-        "emptyLeaderboard": "Chưa có dữ liệu xếp hạng"
+        "emptyLeaderboard": "Chưa có dữ liệu xếp hạng",
+        "decksTab": "Bộ thẻ ({count})"
       },
       "assignments": {
         "meta": "Bài tập",
@@ -838,8 +892,101 @@
     "settingsForm": {
       "nameLabel": "Họ và tên",
       "emailLabel": "Email",
+      "addPhoto": "Thêm ảnh đại diện",
+      "changePhoto": "Đổi ảnh đại diện",
+      "dobLabel": "Ngày sinh",
+      "dobHint": "Nhận quà XP vào đúng ngày sinh nhật",
+      "bioLabel": "Giới thiệu bản thân",
+      "bioPlaceholder": "Vài dòng để giáo viên và bạn học biết về bạn...",
+      "goalLabel": "Mục tiêu học tập",
+      "goalPlaceholder": "VD: IELTS 6.5",
       "saveChanges": "Lưu thay đổi",
+      "saveError": "Không lưu được hồ sơ.",
       "saved": "Đã lưu"
+    },
+    "gamification": {
+      "levelShort": "Cấp {level}",
+      "levelTitle": "Cấp {level}",
+      "levelXp": "Cấp độ",
+      "xpTotal": "{xp} XP tích luỹ",
+      "progressLabel": "Tiến độ lên cấp",
+      "xpToNext": "Còn {xp} XP",
+      "streakBonus": "+10% XP hôm nay",
+      "days": "{count} ngày",
+      "statStreak": "Chuỗi ôn",
+      "statMastered": "Từ đã thuộc",
+      "statBadges": "Huy hiệu",
+      "leveledUp": "Lên cấp {level}!",
+      "newBadgeGeneric": "Huy hiệu mới",
+      "titleLabel": "Danh hiệu hiển thị",
+      "titleHint": "Hiện cạnh tên bạn trong xếp hạng và phòng game",
+      "titleAuto": "Tự động (danh hiệu cao nhất)",
+      "nextTitleHint": "Đạt cấp {level} để mở khoá danh hiệu tiếp theo.",
+      "badgesTitle": "Huy hiệu thành tích",
+      "badgesProgress": "{earned}/{total} đã mở khoá",
+      "titles": {
+        "newcomer": "Người mới",
+        "diligent": "Học viên chăm chỉ",
+        "word_hunter": "Thợ săn từ vựng",
+        "vocab_ace": "Cao thủ từ vựng",
+        "scholar": "Học giả",
+        "ielts_master": "Bậc thầy IELTS",
+        "legend": "Huyền thoại"
+      },
+      "badges": {
+        "first_assignment": {
+          "name": "Bài đầu tiên",
+          "desc": "Nộp bài tập đầu tiên"
+        },
+        "perfect_score": {
+          "name": "Điểm tuyệt đối",
+          "desc": "Đạt 100 điểm một bài trắc nghiệm"
+        },
+        "speedrunner": {
+          "name": "Về đích sớm",
+          "desc": "Đạt ≥ 80 điểm trong chưa đầy 40% thời gian"
+        },
+        "streak_7": {
+          "name": "Chuỗi 7 ngày",
+          "desc": "Ôn từ vựng 7 ngày liên tục"
+        },
+        "streak_30": {
+          "name": "Chuỗi 30 ngày",
+          "desc": "Ôn từ vựng 30 ngày liên tục"
+        },
+        "game_podium": {
+          "name": "Lên bục",
+          "desc": "Vào top 3 một phòng game trực tiếp"
+        },
+        "game_champion": {
+          "name": "Nhà vô địch",
+          "desc": "Về nhất một phòng game trực tiếp"
+        },
+        "words_100": {
+          "name": "Từ vựng gia",
+          "desc": "Thuộc lòng 100 từ vựng"
+        },
+        "night_owl": {
+          "name": "Cú đêm",
+          "desc": "Ôn từ trong khoảng 22h–4h sáng"
+        },
+        "level_10": {
+          "name": "Cấp 10",
+          "desc": "Đạt cấp độ 10"
+        },
+        "level_25": {
+          "name": "Cấp 25",
+          "desc": "Đạt cấp độ 25"
+        }
+      },
+      "birthday": {
+        "title": "Chúc mừng sinh nhật! 🎂",
+        "desc": "Có một món quà XP đang chờ bạn hôm nay.",
+        "claim": "Nhận quà",
+        "done": "Đã nhận",
+        "claimed": "Bạn nhận được {xp} XP mừng sinh nhật!",
+        "already": "Bạn đã nhận quà sinh nhật năm nay rồi."
+      }
     },
     "resetDemo": {
       "title": "Dữ liệu demo",
@@ -862,6 +1009,365 @@
       "hoursLeft": "Còn {count} giờ",
       "today": "Hôm nay",
       "tomorrow": "Ngày mai"
+    },
+    "schedule": {
+      "meta": "Lịch thi",
+      "title": "Lịch thi",
+      "teacherDesc": "Các bài kiểm tra bạn đã giao trong 2 tuần tới.",
+      "studentDesc": "Các bài kiểm tra sắp tới trong lớp của bạn.",
+      "hint": "Nhấn vào một ô ngày trên lịch để xem các bài kiểm tra đến hạn hôm đó. Bạn có thể làm bài bất cứ lúc nào trước hạn nộp — ngày trên lịch là hạn cuối, không phải ngày duy nhất được làm bài.",
+      "today": "Hôm nay",
+      "emptyDay": "Không có bài kiểm tra nào đến hạn ngày này.",
+      "dayHasCount": "{count} bài kiểm tra đến hạn",
+      "more": "nữa",
+      "prevWeeks": "2 tuần trước",
+      "nextWeeks": "2 tuần sau",
+      "backToToday": "Về hôm nay"
+    },
+    "srs": {
+      "meta": "Ôn từ vựng",
+      "title": "Ôn từ vựng",
+      "desc": "Ôn lại đúng lúc theo thuật toán lặp lại ngắt quãng để nhớ từ lâu hơn.",
+      "exit": "Thoát",
+      "streakDays": "{count} ngày",
+      "cardProgress": "Thẻ {current}/{total}",
+      "badgeNew": "Từ mới",
+      "badgeMistake": "Từ hay sai",
+      "listen": "Nghe phát âm",
+      "tapToReveal": "Tự nhớ nghĩa rồi bấm để xem đáp án",
+      "showAnswer": "Hiện đáp án",
+      "grade_again": "Quên",
+      "grade_hard": "Khó",
+      "grade_good": "Tốt",
+      "grade_easy": "Dễ",
+      "intervalMinutes": "vài phút",
+      "intervalOneDay": "1 ngày",
+      "intervalDays": "{count} ngày",
+      "intervalMonths": "{count} tháng",
+      "intervalYears": "{count} năm",
+      "doneTitle": "Xong buổi ôn hôm nay!",
+      "doneBody": "Bạn vừa ôn {count} thẻ. Quay lại vào ngày mai để giữ chuỗi nhé.",
+      "backToDashboard": "Về bảng điều khiển",
+      "caughtUpTitle": "Đã ôn hết!",
+      "caughtUpBody": "Hôm nay bạn đã ôn {count} thẻ và không còn thẻ nào đến hạn. Tuyệt vời!",
+      "emptyTitle": "Chưa có từ nào để ôn",
+      "emptyBody": "Từ vựng từ các bài tập trong lớp sẽ tự động vào đây. Tham gia một lớp học để bắt đầu.",
+      "emptyCta": "Xem lớp học của tôi",
+      "widgetTitle": "Ôn từ vựng",
+      "widgetDue": "từ cần ôn hôm nay",
+      "widgetStart": "Ôn ngay",
+      "widgetCaughtUp": "Bạn đã ôn hết cho hôm nay — {total} từ trong bộ sưu tập.",
+      "widgetReviewAgain": "Ôn lại lần nữa",
+      "widgetEmpty": "Từ vựng từ bài tập của lớp sẽ tự động xuất hiện ở đây để ôn tập.",
+      "insights": {
+        "meta": "Từ vựng của lớp",
+        "title": "Từ vựng của lớp",
+        "desc": "Học sinh đang ghi nhớ từ vựng tốt đến đâu — từ nào hay quên, ai chăm ôn, ai đang bỏ bê.",
+        "noClasses": "Chưa có lớp học",
+        "noClassesHint": "Tạo lớp và giao bài tập từ vựng để bắt đầu theo dõi.",
+        "noData": "Chưa có dữ liệu ôn tập",
+        "noDataHint": "Khi học sinh bắt đầu ôn từ, thống kê sẽ hiện ở đây.",
+        "statStudents": "Học sinh",
+        "statActive": "Đang ôn tập",
+        "statActiveHint": "trên {total} học sinh",
+        "statReviewedToday": "Ôn hôm nay",
+        "statNeedNudge": "Cần nhắc nhở",
+        "hardestTitle": "Từ học sinh hay quên nhất",
+        "hardestHint": "Xếp theo tổng số lần quên trong cả lớp — cân nhắc ôn lại chung.",
+        "hardestEmpty": "Chưa có từ nào gây khó cho cả lớp.",
+        "hardestFewer": "và {count} từ khác",
+        "lapses": "{count} lần quên",
+        "strugglingOf": "{struggling}/{learners} học sinh chưa thuộc",
+        "streakTitle": "Chuỗi ngày ôn liên tục",
+        "streakEmpty": "Chưa có học sinh nào giữ chuỗi.",
+        "nudgeTitle": "Học sinh đang bỏ ôn",
+        "nudgeHint": "Có từ đến hạn nhưng chưa ôn từ 3 ngày trở lên.",
+        "nudgeEmpty": "Không có ai đang bỏ bê — cả lớp đang theo kịp!",
+        "dueCards": "{count} thẻ đến hạn"
+      }
+    },
+    "notifications": {
+      "title": "Thông báo",
+      "markAllRead": "Đánh dấu đã đọc tất cả",
+      "empty": "Chưa có thông báo nào.",
+      "aria": "Thông báo",
+      "ariaNew": "{count} thông báo mới"
+    },
+    "games": {
+      "list": {
+        "meta": "Minigame",
+        "title": "Minigame",
+        "desc": "Bộ câu hỏi để tổ chức phòng chơi trắc nghiệm realtime.",
+        "newQuizSet": "Tạo bộ câu hỏi mới",
+        "emptyDesc": "Chưa có bộ câu hỏi nào.",
+        "questionCount": "{count} câu hỏi",
+        "start": "Bắt đầu chơi",
+        "delete": "Xoá",
+        "deleteConfirmTitle": "Xoá bộ câu hỏi này?",
+        "deleteConfirmBody": "Không thể hoàn tác. Các phòng chơi đã tổ chức trước đó vẫn giữ nguyên dữ liệu.",
+        "deleteConfirmOk": "Xoá",
+        "deleteConfirmCancel": "Huỷ",
+        "deleteFailed": "Không xoá được bộ câu hỏi.",
+        "pickTopCountTitle": "Bắt đầu phòng chơi",
+        "pickTopCountDesc": "Chọn số lượng học sinh được vinh danh trên bục xếp hạng cuối game.",
+        "startConfirm": "Tạo phòng & lấy mã PIN",
+        "topCountOption": "Top {count}"
+      },
+      "builder": {
+        "meta": "Tạo bộ câu hỏi",
+        "pageTitle": "Tạo bộ câu hỏi mới",
+        "pageDesc": "Trắc nghiệm ABCD, điền từ hoặc sắp xếp chữ cái — mỗi câu có thể kèm ảnh minh hoạ.",
+        "titleLabel": "Tên bộ câu hỏi",
+        "titlePlaceholder": "Ví dụ: Đố vui Từ vựng Chủ đề Du lịch",
+        "questionTitle": "Câu hỏi {index}",
+        "removeQuestion": "Xoá câu",
+        "kindLabel": "Loại câu hỏi",
+        "kindMultipleChoice": "Trắc nghiệm",
+        "kindFillBlank": "Điền từ",
+        "kindScramble": "Sắp xếp chữ",
+        "promptLabel": "Nội dung câu hỏi",
+        "promptPlaceholder": "Nhập câu hỏi...",
+        "promptLabelFillBlank": "Câu hỏi (dùng ___ cho chỗ trống)",
+        "promptPlaceholderFillBlank": "Ví dụ: Thì quá khứ của \"go\" là ___.",
+        "promptLabelScramble": "Gợi ý (nghĩa của từ)",
+        "promptPlaceholderScramble": "Ví dụ: Loại quả màu vàng mà khỉ rất thích",
+        "addImage": "Thêm ảnh",
+        "changeImage": "Đổi ảnh",
+        "optionsLabel": "4 đáp án (chọn ô tròn để đánh dấu đáp án đúng)",
+        "markCorrect": "Đánh dấu đáp án {letter} là đúng",
+        "optionPlaceholder": "Đáp án {letter}",
+        "correctHint": "Chọn ô tròn bên trái đáp án đúng.",
+        "acceptedAnswersLabel": "Đáp án chấp nhận",
+        "acceptedAnswerPlaceholder": "Đáp án đúng",
+        "addAcceptedAnswer": "Thêm đáp án",
+        "removeAcceptedAnswer": "Xoá đáp án",
+        "acceptedAnswersHint": "Khớp chính xác được tính đúng ngay; các đáp án gần đúng khác sẽ do AI chấm khi chốt.",
+        "scrambleAnswerLabel": "Từ cần sắp xếp",
+        "scrambleAnswerPlaceholder": "Ví dụ: banana",
+        "scrambleAnswerHint": "Học sinh sẽ thấy các chữ cái của từ này bị xáo trộn.",
+        "timeLimitLabel": "Thời gian trả lời",
+        "seconds": "giây",
+        "addQuestion": "Thêm câu hỏi",
+        "submit": "Lưu bộ câu hỏi",
+        "cannotSubmit": "Điền đủ tên bộ câu hỏi và nội dung, đáp án cho mỗi câu.",
+        "ai": {
+          "trigger": "Tạo câu hỏi bằng AI",
+          "modalTitle": "Tạo câu hỏi bằng AI",
+          "promptLabel": "Yêu cầu",
+          "promptPlaceholder": "Ví dụ: Tạo 8 câu hỏi từ vựng chủ đề Du lịch, trình độ IELTS Band 5.5-6.0",
+          "questionCountLabel": "Số câu hỏi",
+          "sourceTextLabel": "Dán giáo trình (tuỳ chọn)",
+          "sourceTextPlaceholder": "Dán nội dung bài học để AI tạo câu hỏi bám sát tài liệu...",
+          "fileLabel": "Hoặc đính kèm file (tuỳ chọn)",
+          "chooseFile": "Chọn file PDF hoặc .txt",
+          "fileTypeError": "Chỉ hỗ trợ file PDF hoặc .txt — chưa hỗ trợ .docx.",
+          "fileSizeError": "File tối đa 15MB.",
+          "hint": "AI chỉ tạo bản nháp — bạn xem lại, sửa chữ, thêm ảnh trước khi lưu.",
+          "generate": "Tạo câu hỏi",
+          "success": "Đã tạo {count} câu hỏi — xem lại và chỉnh sửa trước khi lưu nhé.",
+          "replaceConfirmTitle": "Thay thế câu hỏi hiện có?",
+          "replaceConfirmBody": "Các câu hỏi bạn đang soạn sẽ bị thay bằng câu hỏi AI vừa tạo.",
+          "replaceConfirmOk": "Thay thế",
+          "replaceConfirmCancel": "Huỷ"
+        }
+      },
+      "host": {
+        "metaHosting": "Đang tổ chức: {title}",
+        "metaFallback": "Phòng chơi",
+        "pageDesc": "Chiếu mã PIN/QR cho học sinh, điều khiển nhịp độ ván chơi.",
+        "pinLabel": "Mã PIN phòng chơi",
+        "scanOrJoin": "Quét mã QR hoặc vào topti.vn/student/games/join để tham gia",
+        "playersJoined": "{count} học sinh đã vào phòng",
+        "waitingForPlayers": "Đang chờ học sinh quét mã hoặc nhập PIN...",
+        "startGame": "Bắt đầu",
+        "endRoom": "Kết thúc phòng",
+        "questionProgress": "Câu {current}/{total}",
+        "revealNow": "Chốt đáp án ngay",
+        "answeredCount": "{answered}/{total} đã trả lời",
+        "correctAnswerIs": "Đáp án đúng là {letter}",
+        "correctAnswerIsText": "Đáp án đúng: {answer}",
+        "fillBlankWait": "Học sinh đang gõ đáp án của mình...",
+        "scrambleHint": "Học sinh đang sắp xếp các chữ cái:",
+        "answerBreakdownTitle": "Học sinh đã trả lời",
+        "noAnswersYet": "Chưa có câu trả lời nào.",
+        "leaderboard": "Bảng xếp hạng",
+        "nextQuestion": "Câu tiếp theo",
+        "showResults": "Xem kết quả cuối",
+        "gameOver": "Kết thúc ván chơi!",
+        "moreStudents": "và {count} học sinh khác"
+      },
+      "join": {
+        "meta": "Vào phòng chơi",
+        "title": "Vào phòng chơi",
+        "desc": "Nhập mã PIN giáo viên chiếu trên màn hình.",
+        "joinButton": "Vào phòng",
+        "hint": "Hỏi giáo viên mã PIN 6 số, hoặc quét mã QR."
+      },
+      "play": {
+        "metaPlaying": "Đang chơi: {title}",
+        "metaFallback": "Phòng chơi",
+        "waitingTitle": "Đã vào phòng \"{title}\"",
+        "waitingDesc": "Chờ giáo viên bắt đầu ván chơi...",
+        "questionProgress": "Câu {current}/{total}",
+        "submitting": "Đang gửi câu trả lời...",
+        "answerLocked": "Đã chọn — chờ mọi người trả lời xong.",
+        "fillBlankLabel": "Điền đáp án của bạn",
+        "fillBlankPlaceholder": "Nhập đáp án...",
+        "submitAnswer": "Gửi đáp án",
+        "scrambleLabel": "Chạm vào các chữ cái để ghép thành từ",
+        "scrambleTapHint": "Chạm chữ cái bên dưới...",
+        "scrambleBackspace": "Xoá lùi",
+        "scrambleClear": "Xoá hết",
+        "pendingJudgment": "Đã gửi — chờ chấm điểm khi chốt đáp án.",
+        "correct": "Chính xác!",
+        "wrong": "Sai rồi!",
+        "correctWas": "Đáp án đúng là {letter}",
+        "correctAnswerWas": "Đáp án đúng: {answer}",
+        "noAnswer": "Bạn chưa trả lời câu này",
+        "yourRank": "Bạn đang hạng #{rank} — {score} điểm",
+        "leaderboard": "Bảng xếp hạng",
+        "gameOver": "Kết thúc ván chơi!",
+        "finalRank": "Hạng #{rank} — {score} điểm",
+        "podium": "Top {count}",
+        "moreStudents": "và {count} học sinh khác"
+      }
+    },
+    "decks": {
+      "meta": "Bộ thẻ từ vựng",
+      "metaFallback": "Bộ thẻ",
+      "title": "Bộ thẻ của tôi",
+      "desc": "Tự tạo bộ thẻ, nhập bằng mã chia sẻ, hoặc lấy từ thư viện của lớp — rồi thêm vào lịch ôn tập.",
+      "new": {
+        "meta": "Tạo bộ thẻ",
+        "title": "Tạo bộ thẻ mới",
+        "desc": "Nhập từng từ hoặc tải lên file CSV. Sau khi lưu bạn sẽ có mã chia sẻ."
+      },
+      "edit": {
+        "meta": "Sửa bộ thẻ",
+        "title": "Sửa bộ thẻ",
+        "desc": "Cập nhật tên, mô tả và danh sách từ."
+      },
+      "list": {
+        "create": "Tạo bộ thẻ",
+        "importByCode": "Nhập bằng mã",
+        "emptyTitle": "Chưa có bộ thẻ nào",
+        "emptyBody": "Tạo bộ thẻ đầu tiên của bạn, hoặc nhập một bộ thẻ bằng mã chia sẻ bạn bè gửi.",
+        "classTag": "Của lớp",
+        "wordCount": "{count} từ"
+      },
+      "import": {
+        "title": "Nhập bộ thẻ bằng mã",
+        "hint": "Dán mã chia sẻ 6 ký tự để xem trước rồi thêm vào lịch ôn tập của bạn.",
+        "placeholder": "VD. 8A7UGC",
+        "find": "Tìm",
+        "notFound": "Không tìm thấy bộ thẻ với mã này.",
+        "meta": "{count} từ · {owner}",
+        "someone": "một người dùng",
+        "add": "Thêm vào ôn tập",
+        "reimport": "Thêm lại (cập nhật từ mới)",
+        "added": "Đã thêm {count} thẻ mới vào lịch ôn tập.",
+        "addedNone": "Bạn đã có tất cả các từ trong bộ thẻ này."
+      },
+      "detail": {
+        "meta": "{count} từ",
+        "inClass": "Lớp {name}",
+        "imports": "{count} lượt thêm",
+        "addToReview": "Thêm vào ôn tập",
+        "exportCsv": "Tải về CSV",
+        "edit": "Sửa",
+        "delete": "Xoá",
+        "deleteConfirm": "Xoá bộ thẻ này? Các thẻ đã được thêm vào lịch ôn tập của người khác vẫn được giữ lại.",
+        "deleteOk": "Xoá",
+        "deleteCancel": "Huỷ",
+        "deleted": "Đã xoá bộ thẻ.",
+        "addedToReview": "Đã thêm {count} thẻ mới vào lịch ôn tập.",
+        "addedNone": "Bạn đã có tất cả các từ trong bộ thẻ này.",
+        "shareLabel": "Mã chia sẻ",
+        "copy": "Sao chép",
+        "shareHint": "Gửi mã này cho ai muốn dùng chung bộ thẻ.",
+        "codeCopied": "Đã sao chép mã.",
+        "tabList": "Danh sách",
+        "tabStudy": "Xem nhanh",
+        "colWord": "Từ",
+        "colIpa": "Phiên âm",
+        "colMeaning": "Nghĩa",
+        "colExample": "Ví dụ",
+        "backToDecks": "Về danh sách bộ thẻ"
+      },
+      "form": {
+        "titleLabel": "Tên bộ thẻ",
+        "titlePlaceholder": "VD. IELTS Writing — Chủ đề Môi trường",
+        "descLabel": "Mô tả (không bắt buộc)",
+        "descPlaceholder": "Vài từ về nội dung bộ thẻ",
+        "classLabel": "Gắn vào lớp (không bắt buộc)",
+        "classPlaceholder": "Không gắn lớp nào",
+        "classHint": "Gắn vào một lớp bạn dạy để bộ thẻ xuất hiện trong thư viện của lớp đó.",
+        "wordsLabel": "Danh sách từ ({count})",
+        "importCsv": "Nhập từ CSV",
+        "template": "Tải mẫu",
+        "colWord": "Từ",
+        "colIpa": "Phiên âm",
+        "colMeaning": "Nghĩa",
+        "colExample": "Ví dụ",
+        "removeRow": "Xoá dòng",
+        "addRow": "Thêm dòng",
+        "submitCreate": "Tạo bộ thẻ",
+        "submitSave": "Lưu thay đổi",
+        "cancel": "Huỷ",
+        "titleRequired": "Vui lòng nhập tên bộ thẻ (ít nhất 2 ký tự).",
+        "entriesRequired": "Cần ít nhất 1 từ có đủ 'Từ' và 'Nghĩa'.",
+        "csvEmpty": "Không đọc được từ nào từ file. Kiểm tra lại định dạng CSV.",
+        "csvLoaded": "Đã nạp {count} từ từ file.",
+        "created": "Đã tạo bộ thẻ.",
+        "saved": "Đã lưu bộ thẻ."
+      },
+      "study": {
+        "empty": "Bộ thẻ này chưa có từ nào.",
+        "progress": "{current}/{total}",
+        "shuffle": "Xáo trộn",
+        "flipHint": "Chạm để lật thẻ",
+        "listen": "Nghe phát âm",
+        "tapToFlip": "Chạm để xem nghĩa",
+        "prev": "Trước",
+        "next": "Tiếp",
+        "restart": "Học lại từ đầu"
+      },
+      "classLibrary": {
+        "title": "Thư viện bộ thẻ của lớp",
+        "subtitle": "Bộ thẻ giáo viên chia sẻ cho lớp — chọn bộ bạn muốn ôn.",
+        "meta": "{count} từ · {owner}",
+        "teacher": "Giáo viên",
+        "added": "Đã thêm {count} thẻ mới vào lịch ôn tập.",
+        "addedNone": "Bạn đã có tất cả các từ trong bộ thẻ này.",
+        "addBtn": "Thêm vào ôn tập",
+        "addedBtn": "Đã thêm"
+      },
+      "teacherSection": {
+        "title": "Bộ thẻ của lớp",
+        "subtitle": "Bộ thẻ bạn chia sẻ cho lớp này. Học sinh thấy trong tab 'Bộ thẻ' của lớp và tự thêm vào lịch ôn.",
+        "create": "Tạo bộ thẻ cho lớp",
+        "empty": "Chưa có bộ thẻ nào cho lớp này.",
+        "wordCount": "{count} từ",
+        "imports": "{count} lượt thêm",
+        "edit": "Sửa"
+      }
+    }
+  },
+  "workspace": {
+    "switchLabel": "Khu làm việc",
+    "learn": "Học tập",
+    "learnHint": "Lớp học, bài tập và ôn từ của bạn",
+    "teach": "Quản trị giáo viên",
+    "teachHint": "Tạo lớp, giao bài và theo dõi học sinh",
+    "becomeTeacher": "Trở thành giáo viên",
+    "becomeTeacherHint": "Xác thực email để giao bài & tạo lớp",
+    "verifyCard": {
+      "title": "Mở khoá chế độ giáo viên",
+      "body": "Xác thực địa chỉ email để có thể tạo lớp, giao bài và theo dõi tiến độ học sinh. Bạn vẫn học bình thường trong lúc chờ.",
+      "resend": "Gửi liên kết xác thực",
+      "devLinkNote": "Chế độ phát triển: mở liên kết bên dưới để xác thực ngay.",
+      "verifyNow": "Xác thực ngay",
+      "failed": "Không gửi được liên kết. Vui lòng thử lại."
     }
   }
 }

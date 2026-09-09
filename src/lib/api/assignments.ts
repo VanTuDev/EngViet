@@ -56,10 +56,15 @@ function withIds(dto: AssignmentDto): Assignment {
   };
 }
 
-/** List assignments — one class, or (no arg) every assignment across the caller's classes. */
-export async function getAssignments(classId?: string): Promise<Assignment[]> {
+/**
+ * List assignments — one class, or (no `classId`) every assignment across the caller's classes.
+ * `scope: "owned"` for the teacher workspace, `"enrolled"` for the student one — a dual-capable
+ * user (verified student acting as teacher) must pass it explicitly.
+ */
+export async function getAssignments(classId?: string, scope?: "owned" | "enrolled"): Promise<Assignment[]> {
   const qs = new URLSearchParams({ limit: "100" });
   if (classId) qs.set("classId", classId);
+  if (scope) qs.set("scope", scope);
   const res = await apiServer<Paginated<AssignmentDto>>(`/assignments?${qs.toString()}`);
   return res.data.map(withIds);
 }
@@ -80,4 +85,19 @@ export async function getPlayableAssignment(id: string): Promise<Assignment | nu
   } catch {
     return null;
   }
+}
+
+/**
+ * Every assignment across the caller's own classes whose deadline falls within `[from, to)` —
+ * backs the exam schedule/calendar view. `from`/`to` are ISO instants.
+ */
+export async function getAssignmentsInRange(
+  from: string,
+  to: string,
+  scope?: "owned" | "enrolled",
+): Promise<Assignment[]> {
+  const qs = new URLSearchParams({ limit: "100", from, to });
+  if (scope) qs.set("scope", scope);
+  const res = await apiServer<Paginated<AssignmentDto>>(`/assignments?${qs.toString()}`);
+  return res.data.map(withIds);
 }

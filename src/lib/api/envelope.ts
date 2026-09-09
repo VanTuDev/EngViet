@@ -13,9 +13,9 @@ export const API_URL =
 /** Base URL usable from the browser (Google sign-in is a full-page navigation, not a fetch). */
 export const PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/api/v1";
 
-/** URL that kicks off Google OAuth for a given role. */
-export function googleLoginUrl(role: "teacher" | "student"): string {
-  return `${PUBLIC_API_URL}/auth/google?role=${role}`;
+/** URL that kicks off Google OAuth. Every account is created as a student (verify email to teach). */
+export function googleLoginUrl(): string {
+  return `${PUBLIC_API_URL}/auth/google`;
 }
 
 /** httpOnly cookies this app sets for its own BFF session (see `lib/api/session.ts`). */

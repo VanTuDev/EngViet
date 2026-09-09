@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Confetti } from "@/components/motion/confetti";
 import { TimerRing } from "@/components/motion/timer-ring";
+import { XpRewardBanner } from "@/components/features/gamification/xp-reward-banner";
 import { Link } from "@/i18n/navigation";
 import { useCountdown } from "@/hooks/use-countdown";
 import { useCountUp } from "@/hooks/use-count-up";
@@ -278,6 +279,8 @@ function QuizResult({
             time: formatDuration(result.timeTakenSeconds || elapsedSeconds),
           })}
         </p>
+        {result.xp ? <XpRewardBanner reward={result.xp} seedKey={`quiz-${title}`} /> : null}
+
         <div className="mt-4 flex flex-wrap justify-center gap-3">
           <Button asChild variant="secondary">
             <Link href={classHref}>{t("backToClass")}</Link>

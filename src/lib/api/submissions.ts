@@ -1,5 +1,5 @@
 import { apiServer } from "@/lib/api/server";
-import type { AttemptResult, LeaderboardEntry } from "@/lib/types";
+import type { AttemptResult, LeaderboardEntry, XpReward } from "@/lib/types";
 
 interface SubmissionResultDto {
   id: string;
@@ -12,6 +12,7 @@ interface SubmissionResultDto {
   timeTakenSeconds: number;
   submittedAt: string;
   review?: AttemptResult["review"];
+  xp?: XpReward & { totalXp: number };
 }
 
 function toResult(d: SubmissionResultDto, studentName?: string): AttemptResult {

@@ -23,7 +23,7 @@ corepack pnpm install
 cp .env.example .env.local   # điền NEXT_PUBLIC_API_URL (mặc định http://localhost:4000/api/v1)
 corepack pnpm dev            # http://localhost:3000  → 307 sang /vi
 ```
-Cần backend + Redis chạy (xem `../Backend-EngViet`). Chạy `corepack pnpm seed` bên backend để có
+Cần backend chạy (xem `../Backend-EngViet` — không cần Redis, cache chạy in-process). Chạy `corepack pnpm seed` bên backend để có
 dữ liệu mẫu; đăng nhập `teacher2@topti.seed` / `Topti@12345`.
 
 ```bash

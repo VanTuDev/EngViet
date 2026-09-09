@@ -3,7 +3,9 @@
 import { useTranslations } from "next-intl";
 import { LoadingOutlined, MinusOutlined, FallOutlined, RiseOutlined, TrophyOutlined } from "@/components/icons";
 import { Avatar } from "@/components/ui/avatar";
+import { LevelBadge } from "@/components/features/gamification/level-badge";
 import { useInfiniteScroll } from "@/hooks/use-infinite-scroll";
+import { levelFromXp } from "@/lib/gamification";
 import { cn, formatDuration, formatNumber } from "@/lib/utils";
 import type { LeaderboardEntry } from "@/lib/types";
 
@@ -19,12 +21,15 @@ export function LeaderboardTable({
   highlightStudentId,
   scoreLabel,
   showTime = true,
+  showLevel = false,
 }: {
   entries: LeaderboardEntry[];
   highlightStudentId?: string;
   /** Nhãn cột điểm — người gọi truyền vào đã dịch sẵn (vd `t("dash.common.points")`). */
   scoreLabel: string;
   showTime?: boolean;
+  /** On the XP leaderboard, `score` is the student's XP → show their level chip under the name. */
+  showLevel?: boolean;
 }) {
   const t = useTranslations("dash.leaderboard");
   const tc = useTranslations("dash.common");
@@ -61,7 +66,9 @@ export function LeaderboardTable({
                 <p className="truncate font-label-md text-label-md text-on-surface">
                   {entry.studentName} {isSelf ? <span className="text-primary">({tc("you")})</span> : null}
                 </p>
-                {showTime && entry.timeTakenSeconds > 0 ? (
+                {showLevel ? (
+                  <LevelBadge level={levelFromXp(entry.score).level} size="sm" showTitle={false} className="mt-0.5" />
+                ) : showTime && entry.timeTakenSeconds > 0 ? (
                   <p className="font-label-sm text-label-sm text-on-surface-variant">{formatDuration(entry.timeTakenSeconds)}</p>
                 ) : null}
               </div>

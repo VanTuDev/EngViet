@@ -8,11 +8,13 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AssignmentCard } from "@/components/features/assignments/assignment-card";
+import { ClassDeckLibrary } from "@/components/features/decks/class-deck-library";
 import { LeaderboardTable } from "@/components/features/leaderboard/leaderboard-table";
 import { EmptyState } from "@/components/ui/empty-state";
 import { buildPrivateMetadata } from "@/lib/seo";
 import { getClass } from "@/lib/api/classes";
 import { getAssignments } from "@/lib/api/assignments";
+import { getClassDeckLibrary } from "@/lib/api/decks";
 import { getClassLeaderboard } from "@/lib/api/leaderboard";
 import { getCurrentUser } from "@/lib/api/session";
 
@@ -34,11 +36,14 @@ export default async function StudentClassDetailPage({ params }: { params: Promi
 
   let assignments: Awaited<ReturnType<typeof getAssignments>> = [];
   try {
-    assignments = await getAssignments(classId);
+    assignments = await getAssignments(classId, "enrolled");
   } catch {
     notFound(); // not enrolled → backend 403
   }
-  const leaderboard = await getClassLeaderboard(classId);
+  const [leaderboard, deckLibrary] = await Promise.all([
+    getClassLeaderboard(classId),
+    getClassDeckLibrary(classId),
+  ]);
 
   return (
     <>
@@ -57,6 +62,9 @@ export default async function StudentClassDetailPage({ params }: { params: Promi
       <Tabs defaultValue="assignments">
         <TabsList>
           <TabsTrigger value="assignments">{t("assignmentsTab", { count: assignments.length })}</TabsTrigger>
+          {deckLibrary.length > 0 ? (
+            <TabsTrigger value="decks">{t("decksTab", { count: deckLibrary.length })}</TabsTrigger>
+          ) : null}
           <TabsTrigger value="leaderboard">{t("leaderboardTab")}</TabsTrigger>
         </TabsList>
 
@@ -73,6 +81,12 @@ export default async function StudentClassDetailPage({ params }: { params: Promi
             )}
           </Card>
         </TabsContent>
+
+        {deckLibrary.length > 0 ? (
+          <TabsContent value="decks" className="mt-4">
+            <ClassDeckLibrary decks={deckLibrary} />
+          </TabsContent>
+        ) : null}
 
         <TabsContent value="leaderboard" className="mt-4">
           <Card className="p-6">

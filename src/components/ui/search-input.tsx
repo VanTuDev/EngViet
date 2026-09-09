@@ -1,6 +1,6 @@
 "use client";
 
-import { CloseCircleOutlined } from "@/components/icons";
+import { CloseCircleOutlined, SearchOutlined } from "@/components/icons";
 import { cn } from "@/lib/utils";
 
 /**
@@ -20,15 +20,10 @@ export function SearchInput({
 }) {
   return (
     <div className={cn("relative", className)}>
-      <svg
+      <SearchOutlined
         aria-hidden="true"
-        viewBox="0 0 20 20"
-        className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-on-surface-variant"
-        fill="none"
-      >
-        <circle cx="9" cy="9" r="6" stroke="currentColor" strokeWidth="2" />
-        <path d="M14 14l4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      </svg>
+        className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant"
+      />
       <input
         type="search"
         inputMode="search"
@@ -36,14 +31,14 @@ export function SearchInput({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         aria-label={placeholder}
-        className="h-11 w-full rounded-lg border border-outline-variant bg-surface pl-9 pr-9 text-body-md text-on-surface outline-none transition-all placeholder:text-outline focus:border-primary focus:ring-3 focus:ring-primary/20"
+        className="h-11 w-full rounded-lg border border-outline-variant bg-surface pl-9 pr-10 text-body-md text-on-surface outline-none transition-all placeholder:text-outline focus:border-primary focus:ring-3 focus:ring-primary/20"
       />
       {value ? (
         <button
           type="button"
           onClick={() => onChange("")}
           aria-label="Xoá tìm kiếm"
-          className="absolute right-2.5 top-1/2 -translate-y-1/2 rounded p-1 text-on-surface-variant hover:text-on-surface"
+          className="absolute right-1.5 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-md text-on-surface-variant transition-colors hover:bg-surface-variant hover:text-on-surface"
         >
           <CloseCircleOutlined />
         </button>

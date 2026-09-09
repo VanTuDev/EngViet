@@ -14,15 +14,12 @@ export default async function TeacherSettingsPage() {
   const t = await getTranslations("dash.teacher.settings");
   const tRoles = await getTranslations("roles");
   const user = await getCurrentUser();
+  if (!user) return null;
 
   return (
     <>
       <PageHeader title={t("title")} description={t("desc")} />
-      <ProfileSettingsForm
-        name={user?.fullName ?? ""}
-        email={user?.email ?? ""}
-        roleLabel={tRoles("teacher")}
-      />
+      <ProfileSettingsForm user={user} roleLabel={tRoles("teacher")} />
     </>
   );
 }

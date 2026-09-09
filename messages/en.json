@@ -60,11 +60,17 @@
     "teacherDashboard": "Dashboard",
     "teacherClasses": "My classes",
     "teacherAssignments": "Assignments",
+    "teacherSchedule": "Exam Schedule",
+    "teacherGames": "Minigame",
+    "teacherVocabulary": "Class Vocabulary",
     "teacherReports": "Reports",
     "teacherBilling": "Billing",
     "studentDashboard": "Dashboard",
     "studentClasses": "My classes",
     "studentAssignments": "Assignments",
+    "studentReview": "Vocabulary Review",
+    "studentSchedule": "Exam Schedule",
+    "joinGame": "Join Game",
     "studentLeaderboard": "Leaderboard",
     "adminDashboard": "Overview",
     "adminTransactions": "Transactions",
@@ -72,7 +78,15 @@
     "adminTeachers": "Teachers",
     "settings": "Settings",
     "helpCenter": "Help center",
-    "logout": "Sign out"
+    "logout": "Sign out",
+    "collapseSidebar": "Collapse sidebar",
+    "expandSidebar": "Expand sidebar",
+    "groups": {
+      "manage": "Manage",
+      "learn": "Learn",
+      "settings": "Settings"
+    },
+    "studentDecks": "Decks"
   },
   "commandPalette": {
     "open": "Open command palette",
@@ -92,16 +106,15 @@
     "quickNav": "Quick navigation",
     "openMenu": "Open navigation menu",
     "closeMenu": "Close menu",
-    "notifications": "Notifications",
-    "notificationsNew": "{count} new notifications",
     "fallbackTitle": "TOPTI"
   },
   "pageTitles": {
     "fallback": "TOPTI",
+    "greeting": "Hi {name}! 👋",
     "teacher": {
       "dashboard": {
-        "title": "Hi Ms. Mai! 👋",
-        "subtitle": "Here is what is happening today."
+        "title": "Dashboard",
+        "subtitle": "Today's class activity at a glance."
       },
       "classes": {
         "title": "My classes",
@@ -110,6 +123,18 @@
       "assignments": {
         "title": "Assignments",
         "subtitle": "ABCD quizzes and matching minigames you have assigned."
+      },
+      "schedule": {
+        "title": "Exam Schedule",
+        "subtitle": "Upcoming quizzes over the next 2 weeks."
+      },
+      "games": {
+        "title": "Minigame",
+        "subtitle": "Build question banks and host realtime quiz rooms."
+      },
+      "vocabulary": {
+        "title": "Class Vocabulary",
+        "subtitle": "Which words students forget most, and who's keeping up."
       },
       "reports": {
         "title": "Reports",
@@ -137,6 +162,18 @@
         "title": "Assignments",
         "subtitle": "Quizzes and minigames to complete."
       },
+      "review": {
+        "title": "Vocabulary Review",
+        "subtitle": "Review words right on time so they stick."
+      },
+      "schedule": {
+        "title": "Exam Schedule",
+        "subtitle": "Upcoming quizzes over the next 2 weeks."
+      },
+      "games": {
+        "title": "Game Room",
+        "subtitle": "Join a live realtime quiz room with a PIN."
+      },
       "leaderboard": {
         "title": "Leaderboard",
         "subtitle": "Compete with your classmates."
@@ -144,6 +181,10 @@
       "settings": {
         "title": "Settings",
         "subtitle": "Your student account details."
+      },
+      "decks": {
+        "title": "Decks",
+        "subtitle": "Create, share and review vocabulary decks"
       }
     },
     "admin": {
@@ -176,6 +217,7 @@
       "help": "Help",
       "login": "Sign in",
       "register": "Start free trial",
+      "dashboard": "Go to dashboard",
       "openMenu": "Open menu",
       "closeMenu": "Close menu",
       "primaryNav": "Primary navigation",
@@ -396,8 +438,6 @@
       "metaDescription": "Sign in to TOPTI for teachers and students.",
       "title": "Sign in",
       "subtitle": "Welcome back to TOPTI.",
-      "roleTeacher": "Teacher",
-      "roleStudent": "Student",
       "emailLabel": "Email",
       "emailPlaceholder": "you@example.com",
       "passwordLabel": "Password",
@@ -406,29 +446,32 @@
       "googleButton": "Sign in with Google",
       "orDivider": "or",
       "noAccount": "No account yet?",
-      "registerLink": "Register as a teacher",
+      "registerLink": "Sign up",
       "joinLink": "Student join a class",
       "failed": "Sign-in failed. Check your email and password."
     },
     "register": {
-      "metaTitle": "Teacher sign-up",
-      "metaDescription": "Create a free TOPTI teacher account to start managing classes and assigning work automatically.",
-      "title": "Create a teacher account",
-      "subtitle": "Free, no payment card needed. Upgrade as your classes grow.",
+      "metaTitle": "Sign up",
+      "metaDescription": "Create a free TOPTI account — students and teachers both start here.",
+      "title": "Create your TOPTI account",
+      "subtitle": "Free, no card required. Verify your email later to unlock teacher mode.",
       "nameLabel": "Full name",
       "namePlaceholder": "Jane Smith",
       "emailLabel": "Email",
       "emailPlaceholder": "you@example.com",
       "passwordLabel": "Password",
-      "passwordPlaceholder": "At least 6 characters",
+      "passwordPlaceholder": "At least 8 characters",
       "submit": "Create account",
       "googleButton": "Sign up with Google",
       "orDivider": "or",
       "hasAccount": "Already have an account?",
       "loginLink": "Sign in",
       "failed": "Could not create the account. Please try again.",
-      "roleStudent": "Student",
-      "roleTeacher": "Teacher"
+      "successTitle": "Your account is ready!",
+      "successBody": "We've sent a verification link to your email. Verify it to unlock teacher mode — or start learning right away.",
+      "devLinkNote": "Dev mode: use the link below to verify right now.",
+      "verifyNow": "Verify email now",
+      "continueToApp": "Start learning"
     },
     "join": {
       "metaTitle": "Student join a class",
@@ -459,6 +502,16 @@
       "failed": "Sign-in failed",
       "missingCode": "Missing the auth code in the URL.",
       "backToLogin": "Back to sign in"
+    },
+    "verifyEmail": {
+      "metaTitle": "Verify email",
+      "metaDescription": "Verify your email address to unlock teacher mode on TOPTI.",
+      "working": "Verifying your email...",
+      "okTitle": "Verified!",
+      "okBody": "Teacher mode is unlocked. Taking you to the admin area...",
+      "failed": "Verification failed",
+      "missingToken": "The verification link is missing its token.",
+      "backToSettings": "Back to settings"
     }
   },
   "dash": {
@@ -586,7 +639,7 @@
     },
     "student": {
       "metaDashboard": "Student dashboard",
-      "greeting": "Hi {name}! Ready to conquer English today?",
+      "greeting": "Ready to conquer English today, {name}?",
       "greetingSub": "Keep up the momentum and reach your target band.",
       "joinNewClass": "Join a new class",
       "joinNewClassDesc": "Enter the 6-character code from your teacher to join a new study group.",
@@ -610,7 +663,8 @@
         "leaderboardTab": "Leaderboard",
         "emptyAssignmentsTitle": "No assignments yet",
         "emptyAssignmentsDesc": "Your teacher hasn't assigned anything to this class yet.",
-        "emptyLeaderboard": "No ranking data yet"
+        "emptyLeaderboard": "No ranking data yet",
+        "decksTab": "Decks ({count})"
       },
       "assignments": {
         "meta": "Assignments",
@@ -838,8 +892,101 @@
     "settingsForm": {
       "nameLabel": "Full name",
       "emailLabel": "Email",
+      "addPhoto": "Add photo",
+      "changePhoto": "Change photo",
+      "dobLabel": "Date of birth",
+      "dobHint": "Get an XP gift on your birthday",
+      "bioLabel": "About you",
+      "bioPlaceholder": "A line or two so your teacher and classmates know you...",
+      "goalLabel": "Learning goal",
+      "goalPlaceholder": "e.g. IELTS 6.5",
       "saveChanges": "Save changes",
+      "saveError": "Couldn't save your profile.",
       "saved": "Saved"
+    },
+    "gamification": {
+      "levelShort": "Lv {level}",
+      "levelTitle": "Level {level}",
+      "levelXp": "Level",
+      "xpTotal": "{xp} XP total",
+      "progressLabel": "Progress to next level",
+      "xpToNext": "{xp} XP to go",
+      "streakBonus": "+10% XP today",
+      "days": "{count} days",
+      "statStreak": "Review streak",
+      "statMastered": "Words mastered",
+      "statBadges": "Badges",
+      "leveledUp": "Level {level}!",
+      "newBadgeGeneric": "New badge",
+      "titleLabel": "Display title",
+      "titleHint": "Shown next to your name in leaderboards and game rooms",
+      "titleAuto": "Automatic (highest unlocked)",
+      "nextTitleHint": "Reach level {level} to unlock the next title.",
+      "badgesTitle": "Achievements",
+      "badgesProgress": "{earned}/{total} unlocked",
+      "titles": {
+        "newcomer": "Newcomer",
+        "diligent": "Diligent Learner",
+        "word_hunter": "Word Hunter",
+        "vocab_ace": "Vocabulary Ace",
+        "scholar": "Scholar",
+        "ielts_master": "IELTS Master",
+        "legend": "Legend"
+      },
+      "badges": {
+        "first_assignment": {
+          "name": "First Assignment",
+          "desc": "Submitted your first assignment"
+        },
+        "perfect_score": {
+          "name": "Perfect Score",
+          "desc": "Scored 100 on a quiz"
+        },
+        "speedrunner": {
+          "name": "Speedrunner",
+          "desc": "Scored 80+ in under 40% of the time"
+        },
+        "streak_7": {
+          "name": "7-Day Streak",
+          "desc": "Reviewed vocabulary 7 days in a row"
+        },
+        "streak_30": {
+          "name": "30-Day Streak",
+          "desc": "Reviewed vocabulary 30 days in a row"
+        },
+        "game_podium": {
+          "name": "On the Podium",
+          "desc": "Finished top 3 in a live game"
+        },
+        "game_champion": {
+          "name": "Champion",
+          "desc": "Finished 1st in a live game"
+        },
+        "words_100": {
+          "name": "Wordsmith",
+          "desc": "Mastered 100 vocabulary words"
+        },
+        "night_owl": {
+          "name": "Night Owl",
+          "desc": "Reviewed between 10pm and 4am"
+        },
+        "level_10": {
+          "name": "Level 10",
+          "desc": "Reached level 10"
+        },
+        "level_25": {
+          "name": "Level 25",
+          "desc": "Reached level 25"
+        }
+      },
+      "birthday": {
+        "title": "Happy birthday! 🎂",
+        "desc": "There's an XP gift waiting for you today.",
+        "claim": "Claim gift",
+        "done": "Claimed",
+        "claimed": "You got {xp} birthday XP!",
+        "already": "You've already claimed this year's birthday gift."
+      }
     },
     "resetDemo": {
       "title": "Demo data",
@@ -862,6 +1009,365 @@
       "hoursLeft": "{count} hours left",
       "today": "Today",
       "tomorrow": "Tomorrow"
+    },
+    "schedule": {
+      "meta": "Exam Schedule",
+      "title": "Exam Schedule",
+      "teacherDesc": "Quizzes you've assigned over the next 2 weeks.",
+      "studentDesc": "Upcoming quizzes in your classes.",
+      "hint": "Tap a day on the calendar to see the quizzes due then. You can attempt a quiz any time before its deadline — the calendar date is the due date, not the only day you can play it.",
+      "today": "Today",
+      "emptyDay": "No quizzes due this day.",
+      "dayHasCount": "{count} quizzes due",
+      "more": "more",
+      "prevWeeks": "Previous 2 weeks",
+      "nextWeeks": "Next 2 weeks",
+      "backToToday": "Back to today"
+    },
+    "srs": {
+      "meta": "Vocabulary Review",
+      "title": "Vocabulary Review",
+      "desc": "Spaced repetition — review each word right before you'd forget it, so it sticks.",
+      "exit": "Exit",
+      "streakDays": "{count} days",
+      "cardProgress": "Card {current}/{total}",
+      "badgeNew": "New word",
+      "badgeMistake": "Often missed",
+      "listen": "Listen",
+      "tapToReveal": "Recall the meaning, then reveal the answer",
+      "showAnswer": "Show answer",
+      "grade_again": "Again",
+      "grade_hard": "Hard",
+      "grade_good": "Good",
+      "grade_easy": "Easy",
+      "intervalMinutes": "a few min",
+      "intervalOneDay": "1 day",
+      "intervalDays": "{count} days",
+      "intervalMonths": "{count} mo",
+      "intervalYears": "{count} yr",
+      "doneTitle": "Today's review done!",
+      "doneBody": "You reviewed {count} cards. Come back tomorrow to keep your streak.",
+      "backToDashboard": "Back to dashboard",
+      "caughtUpTitle": "All caught up!",
+      "caughtUpBody": "You reviewed {count} cards today and nothing else is due. Nice work!",
+      "emptyTitle": "No words to review yet",
+      "emptyBody": "Vocabulary from your class assignments lands here automatically. Join a class to get started.",
+      "emptyCta": "View my classes",
+      "widgetTitle": "Vocabulary Review",
+      "widgetDue": "words to review today",
+      "widgetStart": "Review now",
+      "widgetCaughtUp": "You're done for today — {total} words in your deck.",
+      "widgetReviewAgain": "Review again",
+      "widgetEmpty": "Vocabulary from your class assignments will show up here to review.",
+      "insights": {
+        "meta": "Class Vocabulary",
+        "title": "Class Vocabulary",
+        "desc": "How well students are retaining vocabulary — which words they forget, who's keeping up, who's falling behind.",
+        "noClasses": "No classes yet",
+        "noClassesHint": "Create a class and assign vocabulary to start tracking.",
+        "noData": "No review data yet",
+        "noDataHint": "Once students start reviewing, insights appear here.",
+        "statStudents": "Students",
+        "statActive": "Reviewing",
+        "statActiveHint": "of {total} students",
+        "statReviewedToday": "Reviewed today",
+        "statNeedNudge": "Need a nudge",
+        "hardestTitle": "Words students forget most",
+        "hardestHint": "Ranked by total lapses across the class — worth re-teaching.",
+        "hardestEmpty": "No words are giving the class trouble.",
+        "hardestFewer": "and {count} more words",
+        "lapses": "{count} lapses",
+        "strugglingOf": "{struggling}/{learners} haven't learned it",
+        "streakTitle": "Longest review streaks",
+        "streakEmpty": "No student has a streak going yet.",
+        "nudgeTitle": "Students falling behind",
+        "nudgeHint": "Have cards due but haven't reviewed in 3+ days.",
+        "nudgeEmpty": "Nobody's behind — the whole class is keeping up!",
+        "dueCards": "{count} cards due"
+      }
+    },
+    "notifications": {
+      "title": "Notifications",
+      "markAllRead": "Mark all as read",
+      "empty": "No notifications yet.",
+      "aria": "Notifications",
+      "ariaNew": "{count} new notifications"
+    },
+    "games": {
+      "list": {
+        "meta": "Minigame",
+        "title": "Minigame",
+        "desc": "Question banks for hosting realtime quiz rooms.",
+        "newQuizSet": "Create a quiz set",
+        "emptyDesc": "No quiz sets yet.",
+        "questionCount": "{count} questions",
+        "start": "Host a game",
+        "delete": "Delete",
+        "deleteConfirmTitle": "Delete this quiz set?",
+        "deleteConfirmBody": "This can't be undone. Previously hosted game sessions keep their own data.",
+        "deleteConfirmOk": "Delete",
+        "deleteConfirmCancel": "Cancel",
+        "deleteFailed": "Couldn't delete the quiz set.",
+        "pickTopCountTitle": "Start a game room",
+        "pickTopCountDesc": "Choose how many students get highlighted on the final podium.",
+        "startConfirm": "Create room & get PIN",
+        "topCountOption": "Top {count}"
+      },
+      "builder": {
+        "meta": "Create a quiz set",
+        "pageTitle": "Create a new quiz set",
+        "pageDesc": "Multiple-choice, fill-in-the-blank or letter-scramble questions — each optionally with an image.",
+        "titleLabel": "Quiz set name",
+        "titlePlaceholder": "e.g. Travel Vocabulary Trivia",
+        "questionTitle": "Question {index}",
+        "removeQuestion": "Remove",
+        "kindLabel": "Question type",
+        "kindMultipleChoice": "Choice",
+        "kindFillBlank": "Fill blank",
+        "kindScramble": "Scramble",
+        "promptLabel": "Question prompt",
+        "promptPlaceholder": "Type the question...",
+        "promptLabelFillBlank": "Question (use ___ for the blank)",
+        "promptPlaceholderFillBlank": "e.g. The past tense of \"go\" is ___.",
+        "promptLabelScramble": "Clue (the word's meaning)",
+        "promptPlaceholderScramble": "e.g. A yellow fruit that monkeys love",
+        "addImage": "Add image",
+        "changeImage": "Change image",
+        "optionsLabel": "4 options (pick the radio for the correct one)",
+        "markCorrect": "Mark option {letter} as correct",
+        "optionPlaceholder": "Option {letter}",
+        "correctHint": "Select the radio button next to the correct answer.",
+        "acceptedAnswersLabel": "Accepted answers",
+        "acceptedAnswerPlaceholder": "Correct answer",
+        "addAcceptedAnswer": "Add answer",
+        "removeAcceptedAnswer": "Remove answer",
+        "acceptedAnswersHint": "An exact match scores immediately; other near-answers are judged by AI at reveal.",
+        "scrambleAnswerLabel": "Word to unscramble",
+        "scrambleAnswerPlaceholder": "e.g. banana",
+        "scrambleAnswerHint": "Students see this word's letters shuffled.",
+        "timeLimitLabel": "Time limit",
+        "seconds": "sec",
+        "addQuestion": "Add question",
+        "submit": "Save quiz set",
+        "cannotSubmit": "Fill in the title, and the prompt and answer(s) for every question.",
+        "ai": {
+          "trigger": "Generate with AI",
+          "modalTitle": "Generate questions with AI",
+          "promptLabel": "Prompt",
+          "promptPlaceholder": "e.g. Create 8 vocabulary questions about Travel, IELTS Band 5.5-6.0",
+          "questionCountLabel": "Number of questions",
+          "sourceTextLabel": "Paste your syllabus (optional)",
+          "sourceTextPlaceholder": "Paste lesson content so the AI stays grounded in it...",
+          "fileLabel": "Or attach a file (optional)",
+          "chooseFile": "Choose a PDF or .txt file",
+          "fileTypeError": "Only PDF or .txt files are supported — .docx isn't yet.",
+          "fileSizeError": "Max file size is 15MB.",
+          "hint": "The AI only drafts questions — review, edit, and add images before saving.",
+          "generate": "Generate",
+          "success": "Generated {count} questions — review and edit them before saving.",
+          "replaceConfirmTitle": "Replace the current questions?",
+          "replaceConfirmBody": "The questions you're editing will be replaced by the ones the AI just generated.",
+          "replaceConfirmOk": "Replace",
+          "replaceConfirmCancel": "Cancel"
+        }
+      },
+      "host": {
+        "metaHosting": "Hosting: {title}",
+        "metaFallback": "Game room",
+        "pageDesc": "Show the PIN/QR to students and drive the pace of the round.",
+        "pinLabel": "Game PIN",
+        "scanOrJoin": "Scan the QR code or go to topti.vn/student/games/join",
+        "playersJoined": "{count} students joined",
+        "waitingForPlayers": "Waiting for students to scan or enter the PIN...",
+        "startGame": "Start",
+        "endRoom": "End room",
+        "questionProgress": "Question {current}/{total}",
+        "revealNow": "Reveal now",
+        "answeredCount": "{answered}/{total} answered",
+        "correctAnswerIs": "The correct answer is {letter}",
+        "correctAnswerIsText": "Correct answer: {answer}",
+        "fillBlankWait": "Students are typing their answers...",
+        "scrambleHint": "Students are unscrambling:",
+        "answerBreakdownTitle": "What students answered",
+        "noAnswersYet": "No answers yet.",
+        "leaderboard": "Leaderboard",
+        "nextQuestion": "Next question",
+        "showResults": "Show final results",
+        "gameOver": "Game over!",
+        "moreStudents": "and {count} more students"
+      },
+      "join": {
+        "meta": "Join a game",
+        "title": "Join a game",
+        "desc": "Enter the PIN your teacher is showing on screen.",
+        "joinButton": "Join room",
+        "hint": "Ask your teacher for the 6-digit PIN, or scan the QR code."
+      },
+      "play": {
+        "metaPlaying": "Playing: {title}",
+        "metaFallback": "Game room",
+        "waitingTitle": "Joined \"{title}\"",
+        "waitingDesc": "Waiting for the teacher to start...",
+        "questionProgress": "Question {current}/{total}",
+        "submitting": "Submitting your answer...",
+        "answerLocked": "Locked in — waiting for everyone else.",
+        "fillBlankLabel": "Type your answer",
+        "fillBlankPlaceholder": "Your answer...",
+        "submitAnswer": "Submit answer",
+        "scrambleLabel": "Tap the letters to spell the word",
+        "scrambleTapHint": "Tap a letter below...",
+        "scrambleBackspace": "Backspace",
+        "scrambleClear": "Clear",
+        "pendingJudgment": "Submitted — waiting for review at reveal.",
+        "correct": "Correct!",
+        "wrong": "Wrong!",
+        "correctWas": "The correct answer was {letter}",
+        "correctAnswerWas": "The correct answer was: {answer}",
+        "noAnswer": "You didn't answer this one",
+        "yourRank": "You're rank #{rank} — {score} points",
+        "leaderboard": "Leaderboard",
+        "gameOver": "Game over!",
+        "finalRank": "Rank #{rank} — {score} points",
+        "podium": "Top {count}",
+        "moreStudents": "and {count} more students"
+      }
+    },
+    "decks": {
+      "meta": "Vocabulary decks",
+      "metaFallback": "Deck",
+      "title": "My decks",
+      "desc": "Build your own decks, import one by share code, or grab one from your class library — then add it to your review schedule.",
+      "new": {
+        "meta": "New deck",
+        "title": "Create a deck",
+        "desc": "Type each word or upload a CSV. You'll get a share code once it's saved."
+      },
+      "edit": {
+        "meta": "Edit deck",
+        "title": "Edit deck",
+        "desc": "Update the name, description and word list."
+      },
+      "list": {
+        "create": "Create deck",
+        "importByCode": "Import by code",
+        "emptyTitle": "No decks yet",
+        "emptyBody": "Create your first deck, or import one with a share code a friend sent you.",
+        "classTag": "Class",
+        "wordCount": "{count} words"
+      },
+      "import": {
+        "title": "Import a deck by code",
+        "hint": "Paste a 6-character share code to preview it, then add it to your review.",
+        "placeholder": "e.g. 8A7UGC",
+        "find": "Find",
+        "notFound": "No deck found with that code.",
+        "meta": "{count} words · {owner}",
+        "someone": "a user",
+        "add": "Add to review",
+        "reimport": "Import again (pick up new words)",
+        "added": "Added {count} new cards to your review.",
+        "addedNone": "You already have every word in this deck."
+      },
+      "detail": {
+        "meta": "{count} words",
+        "inClass": "Class {name}",
+        "imports": "{count} imports",
+        "addToReview": "Add to review",
+        "exportCsv": "Download CSV",
+        "edit": "Edit",
+        "delete": "Delete",
+        "deleteConfirm": "Delete this deck? Cards already added to other people's reviews are kept.",
+        "deleteOk": "Delete",
+        "deleteCancel": "Cancel",
+        "deleted": "Deck deleted.",
+        "addedToReview": "Added {count} new cards to your review.",
+        "addedNone": "You already have every word in this deck.",
+        "shareLabel": "Share code",
+        "copy": "Copy",
+        "shareHint": "Send this code to anyone you want to share the deck with.",
+        "codeCopied": "Code copied.",
+        "tabList": "List",
+        "tabStudy": "Quick study",
+        "colWord": "Word",
+        "colIpa": "IPA",
+        "colMeaning": "Meaning",
+        "colExample": "Example",
+        "backToDecks": "Back to decks"
+      },
+      "form": {
+        "titleLabel": "Deck name",
+        "titlePlaceholder": "e.g. IELTS Writing — Environment",
+        "descLabel": "Description (optional)",
+        "descPlaceholder": "A few words about this deck",
+        "classLabel": "Attach to a class (optional)",
+        "classPlaceholder": "No class",
+        "classHint": "Attach it to a class you teach so the deck shows in that class's library.",
+        "wordsLabel": "Words ({count})",
+        "importCsv": "Import CSV",
+        "template": "Template",
+        "colWord": "Word",
+        "colIpa": "IPA",
+        "colMeaning": "Meaning",
+        "colExample": "Example",
+        "removeRow": "Remove row",
+        "addRow": "Add row",
+        "submitCreate": "Create deck",
+        "submitSave": "Save changes",
+        "cancel": "Cancel",
+        "titleRequired": "Enter a deck name (at least 2 characters).",
+        "entriesRequired": "Add at least one word with both 'Word' and 'Meaning'.",
+        "csvEmpty": "Couldn't read any words from the file. Check the CSV format.",
+        "csvLoaded": "Loaded {count} words from the file.",
+        "created": "Deck created.",
+        "saved": "Deck saved."
+      },
+      "study": {
+        "empty": "This deck has no words yet.",
+        "progress": "{current}/{total}",
+        "shuffle": "Shuffle",
+        "flipHint": "Tap to flip the card",
+        "listen": "Hear pronunciation",
+        "tapToFlip": "Tap to see the meaning",
+        "prev": "Previous",
+        "next": "Next",
+        "restart": "Start over"
+      },
+      "classLibrary": {
+        "title": "Class deck library",
+        "subtitle": "Decks your teacher shared with the class — pick the ones you want to review.",
+        "meta": "{count} words · {owner}",
+        "teacher": "Teacher",
+        "added": "Added {count} new cards to your review.",
+        "addedNone": "You already have every word in this deck.",
+        "addBtn": "Add to review",
+        "addedBtn": "Added"
+      },
+      "teacherSection": {
+        "title": "Class decks",
+        "subtitle": "Decks you shared with this class. Students see them in the class 'Decks' tab and add them to their own review.",
+        "create": "Create a deck for this class",
+        "empty": "No decks for this class yet.",
+        "wordCount": "{count} words",
+        "imports": "{count} imports",
+        "edit": "Edit"
+      }
+    }
+  },
+  "workspace": {
+    "switchLabel": "Workspace",
+    "learn": "Learning",
+    "learnHint": "Your classes, assignments and vocabulary review",
+    "teach": "Teacher admin",
+    "teachHint": "Create classes, set assignments and track students",
+    "becomeTeacher": "Become a teacher",
+    "becomeTeacherHint": "Verify your email to set assignments & create classes",
+    "verifyCard": {
+      "title": "Unlock teacher mode",
+      "body": "Verify your email address to create classes, set assignments and track student progress. You can keep learning while you wait.",
+      "resend": "Send verification link",
+      "devLinkNote": "Dev mode: open the link below to verify right now.",
+      "verifyNow": "Verify now",
+      "failed": "Couldn't send the link. Please try again."
     }
   }
 }

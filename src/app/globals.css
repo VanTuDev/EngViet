@@ -195,6 +195,30 @@
     transform-style: preserve-3d;
   }
 
+  /* Flashcard lật 3D (component FlipCard trong "ôn từ vựng"). */
+  .flip-perspective {
+    perspective: 1400px;
+  }
+  .flip-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .flip-inner.is-flipped {
+    transform: rotateY(180deg);
+  }
+  .flip-face {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .flip-face-back {
+    transform: rotateY(180deg);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .flip-inner {
+      transition: none;
+    }
+  }
+
   /* Safe-area cho thiết bị có notch — dùng cho nav dưới & thanh dính đáy. */
   .pb-safe {
     padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 0px);

@@ -1,6 +1,5 @@
 import { API_URL, ApiError, parseResponse } from "@/lib/api/envelope";
 import {
-  clearSession,
   extractRefreshToken,
   getSessionTokens,
   writeSession,
@@ -51,9 +50,14 @@ async function refresh(tokens: SessionTokens): Promise<SessionTokens | null> {
 /**
  * Authenticated call to the backend from a Server Component / Server Action.
  * Attaches `Authorization: Bearer`, and on a 401 refreshes once (persisting the
- * rotated pair when the context allows) and retries. A dead session throws
- * `ApiError(401)` — protected layouts catch that via `getCurrentUser()` and
- * redirect to `/login`.
+ * rotated pair when the context allows — a no-op during render, where the proxy
+ * already refreshed) and retries. A dead session throws `ApiError(401)`;
+ * `getCurrentUser()` catches that and the protected layout redirects to `/login`.
+ *
+ * It deliberately does **not** clear the session cookies on a failed refresh — a
+ * transient failure (a rotation race, a brief backend blip) must not destroy a
+ * still-valid session. A genuinely dead session ends at the `/login` redirect,
+ * where re-authenticating overwrites the cookies anyway.
  */
 export async function apiServer<T>(path: string, opts: Options = {}): Promise<T> {
   const tokens = await getSessionTokens();
@@ -65,7 +69,6 @@ export async function apiServer<T>(path: string, opts: Options = {}): Promise<T>
   if (res.status === 401) {
     const rotated = await refresh(tokens);
     if (!rotated) {
-      await clearSession();
       throw new ApiError(401, "Phiên đăng nhập đã hết hạn.");
     }
     await writeSession(rotated);

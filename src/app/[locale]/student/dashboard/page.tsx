@@ -6,9 +6,11 @@ import { JoinClassForm } from "@/components/features/classes/join-class-form";
 import { ClassCard } from "@/components/features/classes/class-card";
 import { DeadlineItem } from "@/components/features/assignments/deadline-item";
 import { EmptyState } from "@/components/ui/empty-state";
+import { SrsSummaryCard } from "@/components/features/srs/srs-summary-card";
 import { buildPrivateMetadata } from "@/lib/seo";
 import { getMyClasses } from "@/lib/api/classes";
 import { getAssignments } from "@/lib/api/assignments";
+import { getSrsSummary } from "@/lib/api/srs";
 import { getCurrentUser } from "@/lib/api/session";
 import { Link } from "@/i18n/navigation";
 
@@ -20,7 +22,12 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function StudentDashboardPage() {
   const t = await getTranslations("dash.student");
   const tc = await getTranslations("dash.common");
-  const [myClasses, assignments, user] = await Promise.all([getMyClasses(), getAssignments(), getCurrentUser()]);
+  const [myClasses, assignments, user, srsSummary] = await Promise.all([
+    getMyClasses("enrolled"),
+    getAssignments(undefined, "enrolled"),
+    getCurrentUser(),
+    getSrsSummary(),
+  ]);
   const classNameById = new Map(myClasses.map((c) => [c.id, c.name]));
   const upcoming = [...assignments].sort((a, b) => new Date(a.deadline).getTime() - new Date(b.deadline).getTime()).slice(0, 3);
   const fullName = user?.fullName ?? "";
@@ -74,7 +81,9 @@ export default async function StudentDashboardPage() {
         </div>
 
         <div className="flex flex-col gap-6">
-          <Card className="h-full p-6">
+          <SrsSummaryCard summary={srsSummary} />
+
+          <Card className="p-6">
             <div className="mb-6 flex items-center gap-2 text-error">
               <FieldTimeOutlined className="text-xl" />
               <h3 className="font-heading text-headline-md text-on-surface">{t("upcomingDeadlines")}</h3>

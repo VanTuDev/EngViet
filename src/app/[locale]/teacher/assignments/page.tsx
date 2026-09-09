@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function TeacherAssignmentsPage() {
   const t = await getTranslations("dash.teacher.assignments");
   const tc = await getTranslations("dash.common");
-  const [classes, assignments] = await Promise.all([getMyClasses(), getAssignments()]);
+  const [classes, assignments] = await Promise.all([getMyClasses("owned"), getAssignments(undefined, "owned")]);
   const classNameById = new Map(classes.map((c) => [c.id, c.name]));
 
   return (

@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function StudentAssignmentsPage() {
   const t = await getTranslations("dash.student.assignments");
   const tc = await getTranslations("dash.common");
-  const [myClasses, assignments] = await Promise.all([getMyClasses(), getAssignments()]);
+  const [myClasses, assignments] = await Promise.all([getMyClasses("enrolled"), getAssignments(undefined, "enrolled")]);
   const classNameById = new Map(myClasses.map((c) => [c.id, c.name]));
   const sorted = [...assignments].sort((a, b) => new Date(a.deadline).getTime() - new Date(b.deadline).getTime());
 

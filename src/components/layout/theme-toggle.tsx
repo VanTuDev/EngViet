@@ -2,7 +2,7 @@
 
 import { useEffect, useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
-import { GlobalOutlined } from "@/components/icons";
+import { BulbFilled, BulbOutlined, GlobalOutlined } from "@/components/icons";
 import { THEME_STORAGE_KEY, type ThemePreference } from "@/lib/theme";
 import { cn } from "@/lib/utils";
 
@@ -60,7 +60,7 @@ export function ThemeToggle({ className, floating }: { className?: string; float
   }
 
   const label = t(pref);
-  const icon = pref === "dark" ? <MoonIcon /> : pref === "light" ? <SunIcon /> : <GlobalOutlined />;
+  const icon = pref === "dark" ? <BulbOutlined /> : pref === "light" ? <BulbFilled /> : <GlobalOutlined />;
 
   return (
     <button
@@ -79,24 +79,3 @@ export function ThemeToggle({ className, floating }: { className?: string; float
   );
 }
 
-function SunIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-[1.05em] w-[1.05em]" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" />
-      <path
-        d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function MoonIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-[1.05em] w-[1.05em]" fill="none" aria-hidden="true">
-      <path d="M20 14A8 8 0 1 1 10 4a6 6 0 0 0 10 10z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
-    </svg>
-  );
-}

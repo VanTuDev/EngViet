@@ -36,7 +36,7 @@ export default async function TeacherDashboardPage() {
 
   const [summary, classes, activity] = await Promise.all([
     getTeacherSummary(),
-    getMyClasses(),
+    getMyClasses("owned"),
     getTeacherActivity(),
   ]);
 

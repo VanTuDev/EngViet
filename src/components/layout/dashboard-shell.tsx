@@ -8,14 +8,16 @@ import { MobileBottomNav } from "@/components/layout/mobile-bottom-nav";
 import { CommandPalette, type PaletteEntity } from "@/components/features/command-palette/command-palette";
 import { useAuth } from "@/components/auth/auth-provider";
 import { getSectionTitle } from "@/lib/page-titles";
+import { useSidebarCollapsed } from "@/hooks/use-sidebar";
 import { usePathname } from "@/i18n/navigation";
-import type { Role } from "@/lib/types";
+import type { AppNotification, Role } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 export interface DashboardShellProps {
   role: Role;
   userName: string;
-  notificationCount?: number;
+  /** Server-fetched first page — `TopBar`'s `NotificationBell` takes it from here and live-updates over WebSocket. */
+  initialNotifications?: AppNotification[];
   ctaSlot?: React.ReactNode;
   /** Mục động cho bảng lệnh ⌘K (lớp / giáo viên). Chỉ teacher & admin. */
   commandEntities?: PaletteEntity[];
@@ -32,12 +34,13 @@ export interface DashboardShellProps {
 export function DashboardShell({
   role,
   userName,
-  notificationCount = 0,
+  initialNotifications = [],
   ctaSlot,
   commandEntities,
   children,
 }: DashboardShellProps) {
   const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
+  const collapsed = useSidebarCollapsed();
   const pathname = usePathname();
   const { user } = useAuth();
   const t = useTranslations("pageTitles");
@@ -47,7 +50,11 @@ export function DashboardShell({
   const displayName = user?.fullName ?? userName;
 
   const { titleKey, subtitleKey } = getSectionTitle(role, pathname);
-  const title = t(titleKey);
+  // On each role's home ("…/dashboard") the top-bar heading greets the signed-in user by name,
+  // rather than showing a static label — a small friendliness touch that also fixes the old
+  // hardcoded "Chào cô Mai" leaking a demo name to every teacher.
+  const firstName = displayName.trim().split(/\s+/).pop() || displayName;
+  const title = titleKey.endsWith(".dashboard.title") ? t("greeting", { name: firstName }) : t(titleKey);
   const subtitle = subtitleKey ? t(subtitleKey) : undefined;
 
   // Đóng ngăn kéo mobile mỗi khi đổi route. Chỉnh state ngay trong lúc render
@@ -63,7 +70,13 @@ export function DashboardShell({
 
   return (
     <div className="flex h-[100dvh] overflow-hidden bg-surface">
-      <Sidebar role={role} ctaSlot={ctaSlot} className="fixed left-0 top-0 z-40 hidden h-[100dvh] md:flex" />
+      <Sidebar
+        role={role}
+        ctaSlot={ctaSlot}
+        collapsed={collapsed}
+        collapsible
+        className="fixed left-0 top-0 z-40 hidden h-[100dvh] md:flex"
+      />
 
       {mobileNavOpen ? (
         <div className="fixed inset-0 z-50 md:hidden" role="dialog" aria-modal="true">
@@ -73,19 +86,25 @@ export function DashboardShell({
             onClick={() => setMobileNavOpen(false)}
             className="absolute inset-0 bg-on-surface/40 motion-safe:animate-fade-in"
           />
-          <div className="relative z-10 h-full w-72 max-w-[85vw] motion-safe:animate-fade-in">
-            <Sidebar role={role} ctaSlot={ctaSlot} onNavigate={() => setMobileNavOpen(false)} className="h-full" />
+          <div className="relative z-10 h-full w-64 max-w-[85vw] motion-safe:animate-fade-in">
+            <Sidebar role={role} ctaSlot={ctaSlot} onNavigate={() => setMobileNavOpen(false)} className="h-full w-full" />
           </div>
         </div>
       ) : null}
 
-      <div className="flex h-[100dvh] min-w-0 flex-1 flex-col overflow-y-auto overflow-x-hidden md:ml-64">
+      <div
+        className={cn(
+          "flex h-[100dvh] min-w-0 flex-1 flex-col overflow-y-auto overflow-x-hidden transition-[margin] duration-200 ease-out",
+          collapsed ? "md:ml-20" : "md:ml-64",
+        )}
+      >
         <TopBar
           title={title}
           subtitle={subtitle}
           userName={displayName}
           avatarUrl={user?.avatarUrl}
-          notificationCount={notificationCount}
+          role={role}
+          initialNotifications={initialNotifications}
           showCommand={role !== "student"}
           onMenuClick={() => setMobileNavOpen(true)}
         />

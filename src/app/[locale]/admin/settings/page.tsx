@@ -14,10 +14,11 @@ export default async function AdminSettingsPage() {
   const t = await getTranslations("dash.admin.settings");
   const tRoles = await getTranslations("roles");
   const user = await getCurrentUser();
+  if (!user) return null;
   return (
     <>
       <PageHeader title={t("title")} description={t("desc")} />
-      <ProfileSettingsForm name={user?.fullName ?? ""} email={user?.email ?? ""} roleLabel={tRoles("admin")} />
+      <ProfileSettingsForm user={user} roleLabel={tRoles("admin")} />
     </>
   );
 }

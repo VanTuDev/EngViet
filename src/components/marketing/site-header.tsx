@@ -16,9 +16,12 @@ const NAV_LINKS = [
   { href: "/help", key: "help" },
 ] as const;
 
+type AuthState = { loggedIn: true; role: "admin" | "teacher" | "student" } | { loggedIn: false };
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [auth, setAuth] = useState<AuthState | null>(null);
   const pathname = usePathname();
   const t = useTranslations("marketing.nav");
 
@@ -29,6 +32,22 @@ export function SiteHeader() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Gợi ý đăng nhập (không phải cổng bảo mật): nếu người dùng đã đăng nhập mà ghé
+  // trang công khai (vd Trung tâm trợ giúp), đổi nút Đăng nhập/Đăng ký thành lối
+  // vào bảng điều khiển — để họ không tưởng mình vừa bị đăng xuất.
+  useEffect(() => {
+    let alive = true;
+    fetch("/api/auth-state", { cache: "no-store" })
+      .then((r) => (r.ok ? (r.json() as Promise<AuthState>) : { loggedIn: false as const }))
+      .then((s) => alive && setAuth(s))
+      .catch(() => alive && setAuth({ loggedIn: false }));
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  const dashboardHref = auth?.loggedIn ? (`/${auth.role}/dashboard` as const) : null;
 
   return (
     <header
@@ -76,12 +95,20 @@ export function SiteHeader() {
         <div className="hidden items-center gap-2 md:flex">
           <ThemeToggle />
           <LanguageSwitcher variant="compact" />
-          <Button asChild variant="ghost" className="ml-1">
-            <Link href="/login">{t("login")}</Link>
-          </Button>
-          <Button asChild>
-            <Link href="/register">{t("register")}</Link>
-          </Button>
+          {dashboardHref ? (
+            <Button asChild className="ml-1">
+              <Link href={dashboardHref}>{t("dashboard")}</Link>
+            </Button>
+          ) : (
+            <>
+              <Button asChild variant="ghost" className="ml-1">
+                <Link href="/login">{t("login")}</Link>
+              </Button>
+              <Button asChild>
+                <Link href="/register">{t("register")}</Link>
+              </Button>
+            </>
+          )}
         </div>
 
         <button
@@ -112,12 +139,26 @@ export function SiteHeader() {
             <ThemeToggle />
           </div>
           <div className="mt-2 flex flex-col gap-2 px-3">
-            <Button asChild variant="outline">
-              <Link href="/login">{t("login")}</Link>
-            </Button>
-            <Button asChild>
-              <Link href="/register">{t("register")}</Link>
-            </Button>
+            {dashboardHref ? (
+              <Button asChild>
+                <Link href={dashboardHref} onClick={() => setOpen(false)}>
+                  {t("dashboard")}
+                </Link>
+              </Button>
+            ) : (
+              <>
+                <Button asChild variant="outline">
+                  <Link href="/login" onClick={() => setOpen(false)}>
+                    {t("login")}
+                  </Link>
+                </Button>
+                <Button asChild>
+                  <Link href="/register" onClick={() => setOpen(false)}>
+                    {t("register")}
+                  </Link>
+                </Button>
+              </>
+            )}
           </div>
         </nav>
       </div>

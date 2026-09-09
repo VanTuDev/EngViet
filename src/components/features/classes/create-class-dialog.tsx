@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useContext, useState, useTransition } from "react";
 import { useTranslations } from "next-intl";
 import { Modal, Form, Input, Button, QRCode, Typography, Space } from "antd";
 import { PlusOutlined } from "@/components/icons";
+import { SidebarCollapsedContext } from "@/components/layout/sidebar-context";
 import { createClass } from "@/lib/actions";
 import { siteConfig } from "@/lib/site";
 import { useRouter } from "@/i18n/navigation";
@@ -20,6 +21,8 @@ interface CreateClassFormValues {
 export function CreateClassDialog() {
   const router = useRouter();
   const t = useTranslations("dash.classDialog");
+  // Thanh bên thu gọn -> nút CTA rút lại còn nút biểu tượng để không tràn ra ngoài.
+  const sidebarCollapsed = useContext(SidebarCollapsedContext);
   const [form] = Form.useForm<CreateClassFormValues>();
   const [open, setOpen] = useState(false);
   const [created, setCreated] = useState<{ name: string; code: string } | null>(null);
@@ -43,8 +46,16 @@ export function CreateClassDialog() {
 
   return (
     <>
-      <Button type="primary" icon={<PlusOutlined />} block onClick={() => setOpen(true)} style={{ marginBottom: 16 }}>
-        {t("trigger")}
+      <Button
+        type="primary"
+        icon={<PlusOutlined />}
+        block={!sidebarCollapsed}
+        onClick={() => setOpen(true)}
+        style={{ marginBottom: 16 }}
+        aria-label={t("trigger")}
+        title={sidebarCollapsed ? t("trigger") : undefined}
+      >
+        {sidebarCollapsed ? null : t("trigger")}
       </Button>
 
       <Modal
